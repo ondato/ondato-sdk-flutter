@@ -1,4 +1,4 @@
-# Ondato FLutter
+# Ondato Flutter
 
 A Plugin and an example app for using Ondato SDK in Flutter.
 
@@ -13,11 +13,11 @@ To use this plugin:
 
 ### Android
 
-Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 21`
+1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 21`
 
 ### iOS
 
-In `ios/Podfile` add `pod 'OndatoSDKiOS', :git => "git@github.com:ondato/ondato-sdk-ios.git", tag: '1.6.8'` line
+1. In `ios/Podfile` add `pod 'OndatoSDKiOS', :git => "git@github.com:ondato/ondato-sdk-ios.git", tag: '1.6.8'` line:
 
 ```
 target 'Runner' do
@@ -29,7 +29,10 @@ target 'Runner' do
 end
 ```
 
-For camera usage access add in `ios/Runner/Info.plist`:
+2. In the same `ios/Podfile` add `platform :ios, '11.0'` at the top of the file;
+
+3. Add camera usage description in `ios/Runner/Info.plist`:
+
 ```
 <key>NSCameraUsageDescription</key>
 	<string>Required for document and facial capture</string>
@@ -40,6 +43,18 @@ For camera usage access add in `ios/Runner/Info.plist`:
 ```dart
 import 'package:ondato_flutter/ondato_config_model.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
+...
+  onPressed: () async {
+      await OndatoFlutter.init(
+        OndatoServiceConfiguration(
+          credentials: OndataCredencials(
+              accessToken: YOUR_ACCESS_TOKEN,
+              identificationId: YOUR_IDENTIFICATION_ID),
+        ),
+      );
+      await OndatoFlutter.startIdentification();
+    },
+...
 ```
 
 ## Theme Customization
@@ -65,3 +80,8 @@ ondatoColorErrorBg: Defines the background color of the error message background
 ondatoColorErrorText: Defines the background color of the error message text color
 
 ondatoColorPrimaryDark: Defines the taskbar color
+
+### iOS
+
+For iOS, use `OndatoIosAppearance appearance` on `OndatoServiceConfiguration` class.
+

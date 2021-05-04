@@ -1,12 +1,10 @@
-
 import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:ondato_flutter/ondato_config.dart';
 
 class OndatoFlutter {
-  static const MethodChannel _channel =
-      const MethodChannel('ondato_flutter');
+  static const MethodChannel _channel = const MethodChannel('ondato_flutter');
 
   static bool _isInit = false;
 
@@ -25,10 +23,10 @@ class OndatoFlutter {
   static Future<String> startIdentification() async {
     final result =
         await _channel.invokeMethod(_OndatoSdkChannel.startIdentification);
-    if (result.containsKey('error')) {
-      throw OndatoException(result['identificationId'], result['error']);
-    }
-    return result['identificationId'];
+    // if (result.containsKey('error')) {
+    //   throw OndatoException(result['identificationId'], result['error']);
+    // }
+    return result;
   }
 }
 

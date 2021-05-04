@@ -78,10 +78,10 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
         Log.d("ONDATO SDK", "identificationID $identificationId")
 
         val config = OndatoConfig.Builder()
-                // .setCredentials("Demo", "123asd!")
+                .setCredentials("Demo", "123asd!")
                 .recordProcess(flowConfig?.get("recordProcess") ?: false) //defaul is false
-                .setToken(credentials["accessToken"] ?: "")
-                .setIdentificationId(identificationId)
+                // .setToken(credentials["accessToken"] ?: "")
+                // .setIdentificationId(identificationId)
                 .showSplashScreen(flowConfig?.get("showSplashScreen") ?: true) //default is true
                 .showStartScreen(flowConfig?.get("showStartScreen") ?: true) //default is true
                 .showConsentScreen(flowConfig?.get("showConsentScreen")

@@ -32,23 +32,24 @@ class _MyAppState extends State<MyApp> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextButton(
-                  onPressed: () async {
-                    await OndatoFlutter.init(
-                      OndatoServiceConfiguration(
-                        credentials: OndataCredencials(
-                            accessToken: YOUR_ACCESS_TOKEN,
-                            identificationId: YOUR_IDENTIFICATION_ID),
-                        mode: OndatoEnvironment.test,
-                        appearance: OndatoIosAppearance(
-                          buttonColor: Colors.amber,
-                        ),
-                      ),
-                    );
-                    await OndatoFlutter.startIdentification()
-                        .then((e) => print(e))
-                        .catchError((e) => print(e));
-                  },
-                  child: Text('Start Identification'))
+                onPressed: () async {
+                  await OndatoFlutter.init(
+                    OndatoServiceConfiguration(
+                      credentials: OndataCredencials(
+                          accessToken: YOUR_ACCESS_TOKEN,
+                          identificationId: YOUR_IDENTIFICATION_ID),
+                      flowConfiguration: OndatoFlowConfiguration(
+                          recordProcess: false,
+                          ignoreLivenessErrors: true,
+                          ignoreVerificationErrors: true),
+                      mode: OndatoEnvironment.test,
+                    ),
+                  );
+                  await OndatoFlutter.startIdentification()
+                      .then((value) => print(value));
+                },
+                child: Text('Start Identification'),
+              ),
             ],
           ),
         ),
