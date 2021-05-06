@@ -85,8 +85,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: "75b34034e86a2aea93e296f8df8a5d973f869314"
+      ref: main
+      resolved-ref: "90ddcca1e2ae9c0de3e8c67a5c3706eed2a514ed"
       url: "git@github.com:ondato/sample-sdk-app-flutter.git"
     source: git
     version: "0.0.1"
