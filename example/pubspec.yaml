@@ -13,6 +13,10 @@ dependencies:
     sdk: flutter
 
   ondato_flutter:
+    # git:
+    #   url: git@github.com:ondato/sample-sdk-app-flutter.git
+    #   ref: dev
+
     # When depending on this package from a real application you should use:
     #   ondato_flutter: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

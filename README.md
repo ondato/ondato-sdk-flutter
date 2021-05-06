@@ -26,21 +26,9 @@ To use this plugin:
 
 ### iOS
 
-1. In `ios/Podfile` add `pod 'OndatoSDKiOS', :git => "git@github.com:ondato/ondato-sdk-ios.git", tag: '1.6.8'` line:
+1. In the same `ios/Podfile` add `platform :ios, '11.0'` at the top of the file;
 
-```
-target 'Runner' do
-  use_frameworks!
-  use_modular_headers!
-
-  pod 'OndatoSDKiOS', :git => "git@github.com:ondato/ondato-sdk-ios.git", tag: '1.6.8'
-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-end
-```
-
-2. In the same `ios/Podfile` add `platform :ios, '11.0'` at the top of the file;
-
-3. Add camera usage description in `ios/Runner/Info.plist`:
+2. Add camera usage description in `ios/Runner/Info.plist`:
 
 ```
 <key>NSCameraUsageDescription</key>
