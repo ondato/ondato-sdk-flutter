@@ -26,11 +26,11 @@ class _MyAppState extends State<MyApp> {
   void intializeOndatoConfiguration() {
     OndatoFlutter.init(
       OndatoServiceConfiguration(
-        language: OndatoLanguage.en,
         appearance: OndatoIosAppearance(
           errorColor: Colors.orange,
           progressColor: Colors.orange,
         ),
+        language: OndatoLanguage.en,
         credentials: OndataCredencials(
             accessToken: accessToken, identificationId: indetificationId),
         flowConfiguration: OndatoFlowConfiguration(

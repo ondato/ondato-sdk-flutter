@@ -15,6 +15,15 @@ To use this plugin:
 
 1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 21`
 
+2. In `android/app/src/main/AndroidManifest.xml` add `android:theme="@style/Theme.AppCompat.Light"`
+
+```
+ <application
+        android:theme="@style/Theme.AppCompat.Light"
+        android:label="ondato_flutter_example"
+        android:icon="@mipmap/ic_launcher">
+```
+
 ### iOS
 
 1. In `ios/Podfile` add `pod 'OndatoSDKiOS', :git => "git@github.com:ondato/ondato-sdk-ios.git", tag: '1.6.8'` line:
@@ -61,7 +70,7 @@ import 'package:ondato_flutter/ondato_flutter.dart';
 
 ### Android
 
-In order to enhance the user experience on the transition between your application and the SDK, you can provide some customisation by defining certain colors inside your own colors.xml file:
+In order to enhance the user experience on the transition between your application and the SDK, you can provide some customisation by defining certain colors inside your own `android/app/src/main/res/values/colors.xml` file:
 
 ondatoColorProgressBarAccent: Defines the color of the ProgressBarView which guides the user through the flow
 
@@ -81,7 +90,26 @@ ondatoColorErrorText: Defines the background color of the error message text col
 
 ondatoColorPrimaryDark: Defines the taskbar color
 
+Example of `colors.xml` file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ondatoColorProgressBarAccent">#FF0099CC</color>
+</resources>
+```
+
 ### iOS
 
 For iOS, use `OndatoIosAppearance appearance` on `OndatoServiceConfiguration` class.
 
+Example of `OndatoIosAppearance` class:
+
+```dart
+OndatoServiceConfiguration(
+  appearance: OndatoIosAppearance(
+    errorColor: Colors.orange,
+    progressColor: Colors.orange,
+  ),
+)
+```
