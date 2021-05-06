@@ -44,10 +44,8 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             return
         }
 
-
         if let accessToken: String = credentials["accessToken"] as? String {
-            // OndatoService.shared.initialize(accessToken: accessToken)
-            OndatoService.shared.initialize(username: "Demo", password: "123asd!")
+            OndatoService.shared.initialize(accessToken: accessToken)
         }
 
         let configuration: OndatoServiceConfiguration = OndatoService.shared.configuration
@@ -132,6 +130,12 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.DE
             case "lt":
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.LT
+            case "lv":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.LV
+            case "et":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ET
+            case "ru":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RU
             default:
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
             }
@@ -144,10 +148,11 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
 
             self.uiViewController.present(sdk, animated: true, completion: nil)
         }
+        flutterResult(true)
     }
 
     func startIdentification(flutterResult: @escaping  FlutterResult) {
-        weak var delegate: OndatoSDK.OndatoFlowDelegate? =  {() -> OndatoSDK.OndatoFlowDelegate in
+        var delegate: OndatoSDK.OndatoFlowDelegate? =  {() -> OndatoSDK.OndatoFlowDelegate in
             class FlowDelegate : OndatoSDK.OndatoFlowDelegate {
                 private let result : FlutterResult
                 init(r: @escaping FlutterResult) {
@@ -158,16 +163,13 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 }
 
                 func flowDidFail(identificationId: String?, error: OndatoServiceError) {
-                    print(error)
                     result(["identificationId": identificationId, "error": String(error.rawValue)])
                 }
             }
             let flowDelegate = FlowDelegate(r: flutterResult)
             return flowDelegate
         }()
-
         OndatoService.shared.flowDelegate = delegate
-
     }
 }
 

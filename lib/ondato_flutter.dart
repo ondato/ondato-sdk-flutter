@@ -23,10 +23,10 @@ class OndatoFlutter {
   static Future<String> startIdentification() async {
     final result =
         await _channel.invokeMethod(_OndatoSdkChannel.startIdentification);
-    // if (result.containsKey('error')) {
-    //   throw OndatoException(result['identificationId'], result['error']);
-    // }
-    return result;
+    if (result.containsKey('error')) {
+      throw OndatoException(result['identificationId'], result['error']);
+    }
+    return result['identificationId'];
   }
 }
 
