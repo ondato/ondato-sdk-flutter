@@ -6,10 +6,20 @@ A Plugin and an example app for using Ondato SDK in Flutter.
 
 To use this plugin:
 
-1. add `ondato_flutter` as a dependency in your pubspec.yaml file;
+1. add dependency;
 2. setup android;
 3. setup ios;
 4. use plugin in application.
+
+### Add dependency
+
+Add `ondato_flutter` as a dependency in your pubspec.yaml file;
+
+```
+ondato_flutter:
+    git:
+      url: git@github.com:ondato/sample-sdk-app-flutter.git
+```
 
 ### Android
 
