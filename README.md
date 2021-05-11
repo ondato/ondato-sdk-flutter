@@ -28,15 +28,6 @@ ondato_flutter:
 
 1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 21`
 
-2. In `android/app/src/main/AndroidManifest.xml` add `android:theme="@style/Theme.AppCompat.Light"`
-
-```
- <application
-        android:theme="@style/Theme.AppCompat.Light"
-        android:label="ondato_flutter_example"
-        android:icon="@mipmap/ic_launcher">
-```
-
 ### iOS
 
 1. In the same `ios/Podfile` add `platform :ios, '11.0'` at the top of the file;
