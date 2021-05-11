@@ -51,7 +51,7 @@ ondato_flutter:
 ### Use plugin
 
 ```dart
-import 'package:ondato_flutter/ondato_config_model.dart';
+import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 ...
   onPressed: () async {
