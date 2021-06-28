@@ -6,16 +6,17 @@ description: Demonstrates how to use the ondato_flutter plugin.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   ondato_flutter:
-    git:
-      url: git@github.com:ondato/sample-sdk-app-flutter.git
-      ref: main
+    path: ../
+    # git:
+    #   url: git@github.com:ondato/sample-sdk-app-flutter.git
+    #   ref: main
     # When depending on this package from a real application you should use:
     #   ondato_flutter: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
