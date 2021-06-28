@@ -84,9 +84,11 @@ packages:
   ondato_flutter:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      path: "."
+      ref: "1.0.0-nullsafety-1"
+      resolved-ref: "665c31668424c07e2e8f9be2c113f59d9633ada8"
+      url: "git@github.com:ondato/sample-sdk-app-flutter.git"
+    source: git
     version: "0.1.0"
   path:
     dependency: transitive

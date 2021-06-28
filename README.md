@@ -35,6 +35,7 @@ ondato_flutter:
         android:theme="@style/Theme.AppCompat.Light"
         android:label="ondato_flutter_example"
         android:icon="@mipmap/ic_launcher">
+  </application>
 ```
 
 ### iOS
