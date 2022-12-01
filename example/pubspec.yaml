@@ -13,10 +13,10 @@ dependencies:
     sdk: flutter
 
   ondato_flutter:
-    git:
-      url: git@github.com:ondato/sample-sdk-app-flutter.git
-      ref: 1.0.0-nullsafety-1
-    # path: ../
+    # git:
+    #   url: git@github.com:ondato/sample-sdk-app-flutter.git
+    #   ref: 1.0.0-nullsafety-1
+    path: ../
     # git:
     #   url: git@github.com:ondato/sample-sdk-app-flutter.git
     #   ref: main
