@@ -16,37 +16,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Ondato Fluttter example app'),
+          title: const Text('Ondato Flutter example app'),
         ),
         body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextButton(
-                onPressed: () async {
-                  await OndatoFlutter.init(
-                    OndatoServiceConfiguration(
-                      appearance: OndatoIosAppearance(
-                        errorColor: Colors.orange,
-                        progressColor: Colors.orange,
-                      ),
-                      language: OndatoLanguage.en,
-                      credentials: OndataCredencials(
-                          accessToken: YOUR_ACCESS_TOKEN,
-                          identificationId: YOUR_IDENTIFICATION_ID),
-                      flowConfiguration: OndatoFlowConfiguration(
-                          recordProcess: false,
-                          ignoreLivenessErrors: true,
-                          ignoreVerificationErrors: true),
-                      mode: OndatoEnvironment.test,
-                    ),
-                  );
-                  await OndatoFlutter.startIdentification()
-                      .then((indetificationId) => print(indetificationId));
-                },
-                child: Text('Start Identification'),
-              ),
-            ],
+          child: TextButton(
+            onPressed: () async {
+              await OndatoFlutter.init(
+                OndatoServiceConfiguration(
+                  appearance: OndatoIosAppearance(
+                    errorColor: Colors.orange,
+                    progressColor: Colors.orange,
+                  ),
+                  language: OndatoLanguage.en,
+                  credentials: OndatoCredentials(
+                    accessToken: YOUR_ACCESS_TOKEN,
+                    identificationId: YOUR_IDENTIFICATION_ID,
+                  ),
+                  flowConfiguration: OndatoFlowConfiguration(
+                    recordProcess: false,
+                    ignoreLivenessErrors: true,
+                    ignoreVerificationErrors: true,
+                  ),
+                  mode: OndatoEnvironment.test,
+                ),
+              );
+              await OndatoFlutter.startIdentification().then(
+                (identificationId) => print(identificationId),
+              );
+            },
+            child: Text('Start Identification'),
           ),
         ),
       ),

@@ -16,7 +16,7 @@ class OndatoServiceConfiguration {
   OndatoFlowConfiguration? flowConfiguration;
   OndatoEnvironment mode;
   OndatoLanguage language;
-  OndataCredencials credentials;
+  OndatoCredentials credentials;
 
   OndatoServiceConfiguration({
     this.appearance,
@@ -37,8 +37,8 @@ class OndatoServiceConfiguration {
   }
 }
 
-class OndataCredencials {
-  OndataCredencials({
+class OndatoCredentials {
+  OndatoCredentials({
     required this.accessToken,
     required this.identificationId,
   });
