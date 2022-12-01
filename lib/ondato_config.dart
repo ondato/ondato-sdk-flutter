@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
+
 enum OndatoLanguage { en, de, lt, lv, et, ru }
 
 extension OndatoEnvironmentExt on OndatoEnvironment {
@@ -12,18 +13,19 @@ extension OndatoLanguageExt on OndatoLanguage {
 }
 
 class OndatoServiceConfiguration {
-  OndatoIosAppearance? appearance;
-  OndatoFlowConfiguration? flowConfiguration;
-  OndatoEnvironment mode;
-  OndatoLanguage language;
-  OndatoCredentials credentials;
+  final String identificationId;
+  final OndatoEnvironment mode;
+  final OndatoLanguage language;
+  final OndatoFlowConfiguration? flowConfiguration;
+  final OndatoIosAppearance? appearance;
+  // OndatoCredentials credentials;
 
   OndatoServiceConfiguration({
+    required this.identificationId,
     this.appearance,
     this.flowConfiguration,
     this.mode = OndatoEnvironment.test,
     this.language = OndatoLanguage.en,
-    required this.credentials,
   });
 
   Map<String, dynamic> toMap() {
@@ -32,23 +34,23 @@ class OndatoServiceConfiguration {
       'flowConfiguration': flowConfiguration?.toMap(),
       'mode': mode.toMap(),
       'language': language.toMap(),
-      'credentials': credentials.toMap(),
+      'identificationId': identificationId,
     };
   }
 }
 
-class OndatoCredentials {
-  OndatoCredentials({
-    required this.accessToken,
-    required this.identificationId,
-  });
-  final String accessToken;
-  final String identificationId;
+// class OndatoCredentials {
+//   OndatoCredentials({
+//     required this.accessToken,
+//     required this.identificationId,
+//   });
+//   final String accessToken;
+//   final String identificationId;
 
-  Map<String, String> toMap() {
-    return {'accessToken': accessToken, 'identificationId': identificationId};
-  }
-}
+//   Map<String, String> toMap() {
+//     return {'identificationId': identificationId};
+//   }
+// }
 
 class OndatoFlowConfiguration {
   /// Should the splash screen be shown
@@ -57,60 +59,22 @@ class OndatoFlowConfiguration {
   /// Should the start screen be shown
   bool? showStartScreen;
 
-  /// Should the consent screen be shown
-  bool? showConsentScreen;
-
-  /// Should a selfie with document be requested when taking document pictures
-  bool? showSelfieAndDocumentScreen;
-
-  /// Should the success window be shown
-  bool? showSuccessWindow;
-
-  /// Allows user to skip liveness check in case of failure
-  bool? ignoreLivenessErrors;
-
-  /// Allows user to skip document verification error result checks
-  bool? ignoreVerificationErrors;
-
-  /// Should the verification process be recorded
-  bool? recordProcess;
-
   OndatoFlowConfiguration({
-    this.showSplashScreen = true,
     this.showStartScreen = true,
-    this.showConsentScreen = true,
-    this.showSelfieAndDocumentScreen = true,
-    this.showSuccessWindow = true,
-    this.ignoreLivenessErrors = false,
-    this.ignoreVerificationErrors = false,
-    this.recordProcess = true,
+    this.showSplashScreen = true,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'showSplashScreen': showSplashScreen,
       'showStartScreen': showStartScreen,
-      'showConsentScreen': showConsentScreen,
-      'showSelfieAndDocumentScreen': showSelfieAndDocumentScreen,
-      'showSuccessWindow': showSuccessWindow,
-      'ignoreLivenessErrors': ignoreLivenessErrors,
-      'ignoreVerificationErrors': ignoreVerificationErrors,
-      'recordProcess': recordProcess,
     };
   }
 
   factory OndatoFlowConfiguration.fromMap(Map<String, dynamic> map) {
-    // if (map == null) return null;
-
     return OndatoFlowConfiguration(
       showSplashScreen: map['showSplashScreen'],
       showStartScreen: map['showStartScreen'],
-      showConsentScreen: map['showConsentScreen'],
-      showSelfieAndDocumentScreen: map['showSelfieAndDocumentScreen'],
-      showSuccessWindow: map['showSuccessWindow'],
-      ignoreLivenessErrors: map['ignoreLivenessErrors'],
-      ignoreVerificationErrors: map['ignoreVerificationErrors'],
-      recordProcess: map['recordProcess'],
     );
   }
 }
@@ -160,9 +124,6 @@ class OndatoIosAppearance {
     this.declineButtonColor,
   });
 
-  /// appearance of header, body, acceptButton, declineButton in consent screen
-  //var consentWindow;
-
   Map<String, dynamic> toMap() {
     return {
       'logoImageBase64': logoImageBase64,
@@ -200,9 +161,4 @@ class OndatoException implements Exception {
   }
 }
 
-enum OndatoError {
-  cancelled,
-  invalidServerResponse,
-  invalidCredentials,
-  unexpectedInternalError
-}
+enum OndatoError { cancelled, invalidServerResponse, invalidCredentials, unexpectedInternalError }
