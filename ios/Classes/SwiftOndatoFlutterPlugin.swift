@@ -135,21 +135,24 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             }
             OndatoLocalizeHelper.language = selectedLanguage
         }
+        print("ONDATO PLUGIN: Initialize successful.");
         flutterResult(true)
     }
 
     func startIdentification(flutterResult: @escaping  FlutterResult) {
-        var delegate: OndatoSDK.OndatoFlowDelegate? =  {() -> OndatoSDK.OndatoFlowDelegate in
-            class FlowDelegate : OndatoSDK.OndatoFlowDelegate {
+        var delegate: OndatoFlowDelegate? =  {() -> OndatoFlowDelegate in
+            class FlowDelegate : OndatoFlowDelegate {
                 private let result : FlutterResult
                 init(r: @escaping FlutterResult) {
                     self.result = r
                 }
                 func flowDidSucceed(identificationId: String?) {
+                    print("ONDATO PLUGIN: Identification Success!");
                     result(["identificationId": identificationId])
                 }
 
                 func flowDidFail(identificationId: String?, error: OndatoServiceError) {
+                    print("ONDATO PLUGIN: Identification Failed!");
                     result(["identificationId": identificationId, "error": String(error.description)])
                 }
             }
@@ -157,6 +160,9 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             return flowDelegate
         }()
         Ondato.sdk.delegate = delegate
+
+        print("ONDATO PLUGIN: Delegate registered successfully.");
+
         DispatchQueue.main.async {
             let sdk = Ondato.sdk.instantiateOndatoViewController()
             sdk.modalPresentationStyle = .fullScreen
