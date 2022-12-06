@@ -91,10 +91,10 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             if let declineButtonColor : Int = appearance["declineButtonColor"] as? Int {
                 ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
             }
-//            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
-//                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
-//                ondatoAppearance.logoImage = UIImage(data: data)
-//            }
+        //    if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
+        //        let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
+        //        ondatoAppearance.logoImage = UIImage(data: data)
+        //    }
 
             configuration.appearance = ondatoAppearance
 
@@ -139,8 +139,10 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
         flutterResult(true)
     }
 
+    var delegate: OndatoFlowDelegate?;
+
     func startIdentification(flutterResult: @escaping  FlutterResult) {
-        var delegate: OndatoFlowDelegate? =  {() -> OndatoFlowDelegate in
+        delegate =  {() -> OndatoFlowDelegate in
             class FlowDelegate : OndatoFlowDelegate {
                 private let result : FlutterResult
                 init(r: @escaping FlutterResult) {
@@ -159,6 +161,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             let flowDelegate = FlowDelegate(r: flutterResult)
             return flowDelegate
         }()
+
         Ondato.sdk.delegate = delegate
 
         print("ONDATO PLUGIN: Delegate registered successfully.");

@@ -5,37 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 
-const YOUR_IDENTIFICATION_ID = '649def31-fa05-47f2-bea9-d45841a7df26';
+const YOUR_IDENTIFICATION_ID = '63f13f19-7aa4-4e4a-9ee0-b2d39af5548e';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    // OndatoFlutter.init(
-    //   OndatoServiceConfiguration(
-    //     identificationId: YOUR_IDENTIFICATION_ID,
-    //     language: OndatoLanguage.en,
-    //     mode: OndatoEnvironment.test,
-    //     flowConfiguration: OndatoFlowConfiguration(
-    //       showSplashScreen: true,
-    //       showStartScreen: true,
-    //     ),
-    //     appearance: OndatoIosAppearance(
-    //       errorColor: Colors.orange,
-    //       progressColor: Colors.orange,
-    //     ),
-    //   ),
-    // );
-  }
+class MyApp extends StatelessWidget {
 
   Future<void> startIdentification() async {
     try {
