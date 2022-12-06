@@ -53,17 +53,15 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
               }
 
               override fun onFailure(identificationId: String?, error: OndatoError) {
-                val message = error.message;
-                val message = error.message;
-                Log.d("ONDATO PLUGIN", "ERROR FULL $error")
-                Log.d("ONDATO PLUGIN", "ERROR MESSAGE $message")
-                result.error(" ", e.message, e.stackTrace.toString())
-                //   result.success(
-                //       mapOf(
-                //           "identificationId" to identificationId,
-                //           "error" to error.message
-                //       )
-                //   )
+                 val message = error.message;
+                 Log.d("ONDATO PLUGIN", "ERROR FULL $error")
+                 Log.d("ONDATO PLUGIN", "ERROR MESSAGE $message")
+                   result.success(
+                       mapOf(
+                           "identificationId" to identificationId,
+                           "error" to error.message
+                       )
+                   )
               }
           })
       } catch (e: Exception) {

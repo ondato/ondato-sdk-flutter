@@ -39,16 +39,14 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                     FlutterMethodCall, flutterResult: FlutterResult) -> Void {
         guard let args = call.arguments as? [String: Any] else {
             return}
-        guard let credentials : Dictionary<String, Any> = args["credentials"] as? [String: Any] else {
+        guard let identificationId : String = args["identificationId"] as? String else {
             flutterResult(false)
             return
         }
 
-        if let accessToken: String = credentials["accessToken"] as? String {
-            OndatoService.shared.initialize(accessToken: accessToken)
-        }
+        Ondato.sdk.setIdentityVerificationId(identificationId)
 
-        let configuration: OndatoServiceConfiguration = OndatoService.shared.configuration
+        let configuration: OndatoServiceConfiguration = Ondato.sdk.configuration
         if let appearance : [String: Any] = args["appearance"] as? [String:Any]{
             let ondatoAppearance =  OndatoAppearance()
 
@@ -74,13 +72,13 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 ondatoAppearance.errorTextColor = errorTextColor.toUIColor()
             }
 
-            if let regularFontName : String = appearance["regularFontName"] as? String {
-                ondatoAppearance.regularFontName = regularFontName
-            }
-
-            if let mediumFontName : String = appearance["mediumFontName"] as? String {
-                ondatoAppearance.mediumFontName = mediumFontName
-            }
+//            if let regularFontName : String = appearance["regularFontName"] as? String {
+//                ondatoAppearance.regularFontName = regularFontName
+//            }
+//
+//            if let mediumFontName : String = appearance["mediumFontName"] as? String {
+//                ondatoAppearance.mediumFontName = mediumFontName
+//            }
 
             if let headerColor : Int = appearance["headerColor"] as? Int {
                 ondatoAppearance.consentWindow.header.color = headerColor.toUIColor()
@@ -93,10 +91,10 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             if let declineButtonColor : Int = appearance["declineButtonColor"] as? Int {
                 ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
             }
-            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
-                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
-                ondatoAppearance.logoImage = UIImage(data: data)
-            }
+//            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
+//                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
+//                ondatoAppearance.logoImage = UIImage(data: data)
+//            }
 
             configuration.appearance = ondatoAppearance
 
@@ -106,12 +104,8 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             let ondatoFlowConfiguration = OndatoFlowConfiguration()
             ondatoFlowConfiguration.showSplashScreen = (flowConfiguration["showSplashScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showStartScreen = (flowConfiguration["showStartScreen"] as? Bool) ?? true
-            ondatoFlowConfiguration.showConsentScreen = (flowConfiguration["showConsentScreen"] as? Bool) ?? true
-            ondatoFlowConfiguration.showSelfieAndDocumentScreen = (flowConfiguration["showSelfieAndDocumentScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showSuccessWindow = (flowConfiguration["showSuccessWindow"] as? Bool) ?? true
-            ondatoFlowConfiguration.ignoreLivenessErrors = (flowConfiguration["ignoreLivenessErrors"] as? Bool) ?? false
-            ondatoFlowConfiguration.ignoreVerificationErrors = (flowConfiguration["ignoreVerificationErrors"] as? Bool) ?? false
-            ondatoFlowConfiguration.recordProcess = (flowConfiguration["recordProcess"] as? Bool) ?? true
+            ondatoFlowConfiguration.removeSelfieFrame = (flowConfiguration["removeSelfieFrame"] as? Bool) ?? false
 
             configuration.flowConfiguration = ondatoFlowConfiguration;
 
@@ -141,13 +135,6 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             }
             OndatoLocalizeHelper.language = selectedLanguage
         }
-
-        DispatchQueue.main.async {
-            let sdk = OndatoService.shared.instantiateOndatoViewController()
-            sdk.modalPresentationStyle = .fullScreen
-
-            self.uiViewController.present(sdk, animated: true, completion: nil)
-        }
         flutterResult(true)
     }
 
@@ -163,13 +150,18 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 }
 
                 func flowDidFail(identificationId: String?, error: OndatoServiceError) {
-                    result(["identificationId": identificationId, "error": String(error.rawValue)])
+                    result(["identificationId": identificationId, "error": String(error.description)])
                 }
             }
             let flowDelegate = FlowDelegate(r: flutterResult)
             return flowDelegate
         }()
-        OndatoService.shared.flowDelegate = delegate
+        Ondato.sdk.delegate = delegate
+        DispatchQueue.main.async {
+            let sdk = Ondato.sdk.instantiateOndatoViewController()
+            sdk.modalPresentationStyle = .fullScreen
+            self.uiViewController.present(sdk, animated: true, completion: nil)
+        }
     }
 }
 

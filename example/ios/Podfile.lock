@@ -2,10 +2,16 @@ PODS:
   - Flutter (1.0.0)
   - ondato_flutter (0.0.1):
     - Flutter
+    - OndatoSDK (~> 2.1.5)
+  - OndatoSDK (2.1.5)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - ondato_flutter (from `.symlinks/plugins/ondato_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - OndatoSDK
 
 EXTERNAL SOURCES:
   Flutter:
@@ -14,9 +20,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/ondato_flutter/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  ondato_flutter: 08c64f1a154cf28ead700043c279a06b63ca44f2
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  ondato_flutter: 34e5a2d25edcdcdeae604eea1922d5a6a14b51e9
+  OndatoSDK: 404a02e2a444cdc1c702aa8dbc91b508b4e0a57f
 
-PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
+PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3

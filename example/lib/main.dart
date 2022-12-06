@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 
-const YOUR_IDENTIFICATION_ID = '123';
+const YOUR_IDENTIFICATION_ID = 'YOUR_IDENTIFICATION_ID';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +20,26 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    OndatoFlutter.init(
+    // OndatoFlutter.init(
+    //   OndatoServiceConfiguration(
+    //     identificationId: YOUR_IDENTIFICATION_ID,
+    //     language: OndatoLanguage.en,
+    //     mode: OndatoEnvironment.test,
+    //     flowConfiguration: OndatoFlowConfiguration(
+    //       showSplashScreen: true,
+    //       showStartScreen: true,
+    //     ),
+    //     appearance: OndatoIosAppearance(
+    //       errorColor: Colors.orange,
+    //       progressColor: Colors.orange,
+    //     ),
+    //   ),
+    // );
+  }
+
+  Future<void> startIdentification() async {
+    try {
+      await OndatoFlutter.init(
       OndatoServiceConfiguration(
         identificationId: YOUR_IDENTIFICATION_ID,
         language: OndatoLanguage.en,
@@ -34,11 +53,7 @@ class _MyAppState extends State<MyApp> {
           progressColor: Colors.orange,
         ),
       ),
-    );
-  }
-
-  Future<void> startIdentification() async {
-    try {
+      );
       var identificationId = await OndatoFlutter.startIdentification();
       log('Success with ${identificationId!} IdentificationId');
     } catch (error) {
