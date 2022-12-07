@@ -16,7 +16,7 @@
 - feat: Ondato Android and iOS SDKs updated to 2.1.6 version;
 - **BREAKING**: Plugin now supports iOS 13 and up, due to iOS Ondato SDK increasing the deployment target;
 
-# 0.1.0-nullsafety-1
+## 0.1.0-nullsafety-1
 
 Migrated to sound null safety;
 Updated README.md file;

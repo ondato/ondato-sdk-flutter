@@ -12,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  String get YOUR_IDENTIFICATION_ID => '3b94b42b-96c0-49c8-8055-e7cd688f412d';
+  String get YOUR_IDENTIFICATION_ID => 'YOUR_IDENTIFICATION_ID';
 
   Future<void> startIdentification() async {
     try {
