@@ -18,7 +18,6 @@ class OndatoServiceConfiguration {
   final OndatoLanguage language;
   final OndatoFlowConfiguration? flowConfiguration;
   final OndatoIosAppearance? appearance;
-  // OndatoCredentials credentials;
 
   OndatoServiceConfiguration({
     required this.identificationId,
@@ -38,19 +37,6 @@ class OndatoServiceConfiguration {
     };
   }
 }
-
-// class OndatoCredentials {
-//   OndatoCredentials({
-//     required this.accessToken,
-//     required this.identificationId,
-//   });
-//   final String accessToken;
-//   final String identificationId;
-
-//   Map<String, String> toMap() {
-//     return {'identificationId': identificationId};
-//   }
-// }
 
 class OndatoFlowConfiguration {
   /// Should the splash screen be shown
@@ -81,7 +67,7 @@ class OndatoFlowConfiguration {
 
 class OndatoIosAppearance {
   /// Logo image that can be shown in the splash screen
-  String? logoImageBase64;
+  // String? logoImageBase64;
 
   /// background color of the `ProgressBarView` which guides the user through the flow
   Color? progressColor;
@@ -98,12 +84,6 @@ class OndatoIosAppearance {
   /// background color of the error message text color
   Color? errorTextColor;
 
-  /// regular text font
-  String? regularFontName;
-
-  /// medium text font
-  String? mediumFontName;
-
   Color? headerColor;
 
   Color? acceptButtonColor;
@@ -111,14 +91,12 @@ class OndatoIosAppearance {
   Color? declineButtonColor;
 
   OndatoIosAppearance({
-    this.logoImageBase64,
+    // this.logoImageBase64,
     this.progressColor,
     this.buttonColor,
     this.buttonTextColor,
     this.errorColor,
     this.errorTextColor,
-    this.regularFontName,
-    this.mediumFontName,
     this.headerColor,
     this.acceptButtonColor,
     this.declineButtonColor,
@@ -126,14 +104,12 @@ class OndatoIosAppearance {
 
   Map<String, dynamic> toMap() {
     return {
-      'logoImageBase64': logoImageBase64,
+      // 'logoImageBase64': logoImageBase64,
       'progressColor': progressColor?.value,
       'buttonColor': buttonColor?.value,
       'buttonTextColor': buttonTextColor?.value,
       'errorColor': errorColor?.value,
       'errorTextColor': errorTextColor?.value,
-      'regularFontName': regularFontName,
-      'mediumFontName': mediumFontName,
       'headerColor': headerColor?.value,
       'acceptButtonColor': acceptButtonColor?.value,
       'declineButtonColor': declineButtonColor?.value,

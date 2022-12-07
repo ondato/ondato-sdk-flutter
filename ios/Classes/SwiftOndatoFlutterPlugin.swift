@@ -72,14 +72,6 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 ondatoAppearance.errorTextColor = errorTextColor.toUIColor()
             }
 
-//            if let regularFontName : String = appearance["regularFontName"] as? String {
-//                ondatoAppearance.regularFontName = regularFontName
-//            }
-//
-//            if let mediumFontName : String = appearance["mediumFontName"] as? String {
-//                ondatoAppearance.mediumFontName = mediumFontName
-//            }
-
             if let headerColor : Int = appearance["headerColor"] as? Int {
                 ondatoAppearance.consentWindow.header.color = headerColor.toUIColor()
             }
@@ -91,10 +83,11 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             if let declineButtonColor : Int = appearance["declineButtonColor"] as? Int {
                 ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
             }
-        //    if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
-        //        let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
-        //        ondatoAppearance.logoImage = UIImage(data: data)
-        //    }
+
+//            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
+//                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
+//                ondatoAppearance.logoImage = UIImage(data: data)
+//            }
 
             configuration.appearance = ondatoAppearance
 

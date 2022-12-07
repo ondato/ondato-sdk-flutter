@@ -40,7 +40,7 @@ ondato_flutter:
 
 ### iOS
 
-1. In the same `ios/Podfile` add `platform :ios, '11.0'` at the top of the file;
+1. In the same `ios/Podfile` add `platform :ios, '13.0'` at the top of the file;
 
 2. Add camera usage description in `ios/Runner/Info.plist`:
 
@@ -57,11 +57,7 @@ import 'package:ondato_flutter/ondato_flutter.dart';
 ...
   onPressed: () async {
       await OndatoFlutter.init(
-        OndatoServiceConfiguration(
-          credentials: OndataCredencials(
-              accessToken: YOUR_ACCESS_TOKEN,
-              identificationId: YOUR_IDENTIFICATION_ID),
-        ),
+        identificationId: YOUR_IDENTIFICATION_ID,
       );
       await OndatoFlutter.startIdentification();
     },

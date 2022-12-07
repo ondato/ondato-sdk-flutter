@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:core';
 import 'dart:developer';
 
@@ -5,38 +7,37 @@ import 'package:flutter/material.dart';
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 
-const YOUR_IDENTIFICATION_ID = '63f13f19-7aa4-4e4a-9ee0-b2d39af5548e';
-
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  String get YOUR_IDENTIFICATION_ID => '3b94b42b-96c0-49c8-8055-e7cd688f412d';
 
   Future<void> startIdentification() async {
     try {
       await OndatoFlutter.init(
-      OndatoServiceConfiguration(
-        identificationId: YOUR_IDENTIFICATION_ID,
-        language: OndatoLanguage.en,
-        mode: OndatoEnvironment.test,
-        flowConfiguration: OndatoFlowConfiguration(
-          showSplashScreen: true,
-          showStartScreen: true,
+        OndatoServiceConfiguration(
+          identificationId: YOUR_IDENTIFICATION_ID,
+          language: OndatoLanguage.en,
+          mode: OndatoEnvironment.test,
+          flowConfiguration: OndatoFlowConfiguration(
+            showSplashScreen: true,
+            showStartScreen: true,
+          ),
+          appearance: OndatoIosAppearance(
+            errorColor: Colors.orange,
+            progressColor: Colors.orange,
+          ),
         ),
-        appearance: OndatoIosAppearance(
-          errorColor: Colors.orange,
-          progressColor: Colors.orange,
-        ),
-      ),
       );
       var identificationId = await OndatoFlutter.startIdentification();
       log('Success with ${identificationId!} IdentificationId');
-    } catch (error) {
-      if (error is OndatoException) {
-        log('Exception ${error.error.toString()}');
+    } catch (e) {
+      if (e is OndatoException) {
+        log('Exception ${e.error.toString()}');
       } else {
-        log(error.toString());
+        log(e.toString());
       }
     }
   }
