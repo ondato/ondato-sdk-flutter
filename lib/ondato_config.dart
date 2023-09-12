@@ -2,7 +2,7 @@ import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
 
-enum OndatoLanguage { en, de, lt, lv, et, ru }
+enum OndatoLanguage { en, de, lt, lv, et, ru, sq, bg, es, fr, el, it, nl, ro }
 
 extension OndatoEnvironmentExt on OndatoEnvironment {
   String? toMap() => this.toString().split('.').elementAt(1);
@@ -39,35 +39,48 @@ class OndatoServiceConfiguration {
 }
 
 class OndatoFlowConfiguration {
-  /// Should the splash screen be shown
-  bool? showSplashScreen;
 
   /// Should the start screen be shown
-  bool? showStartScreen;
+  bool showStartScreen;
+
+  // Should the splash screen be shown
+  bool showSuccessWindow;
+
+  // Remove selfie frame
+  bool removeSelfieFrame;
+
+  // Remove selfie frame
+  bool skipRegistrationIfDriverLicense;
 
   OndatoFlowConfiguration({
     this.showStartScreen = true,
-    this.showSplashScreen = true,
+    this.showSuccessWindow = true,
+    this.removeSelfieFrame = false,
+    this.skipRegistrationIfDriverLicense = false,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'showSplashScreen': showSplashScreen,
       'showStartScreen': showStartScreen,
+      'showSuccessWindow': showSuccessWindow,
+      'removeSelfieFrame': removeSelfieFrame,
+      'skipRegistrationIfDriverLicense': skipRegistrationIfDriverLicense,
     };
   }
 
   factory OndatoFlowConfiguration.fromMap(Map<String, dynamic> map) {
     return OndatoFlowConfiguration(
-      showSplashScreen: map['showSplashScreen'],
       showStartScreen: map['showStartScreen'],
+      showSuccessWindow: map['showSuccessWindow'],
+      removeSelfieFrame: map['removeSelfieFrame'],
+      skipRegistrationIfDriverLicense: map['skipRegistrationIfDriverLicense'],
     );
   }
 }
 
 class OndatoIosAppearance {
-  /// Logo image that can be shown in the splash screen
-  // String? logoImageBase64;
+  /// Logo image that can be shown in the splash screen must be in base64 format
+  String? logoImageBase64;
 
   /// background color of the `ProgressBarView` which guides the user through the flow
   Color? progressColor;
@@ -91,7 +104,6 @@ class OndatoIosAppearance {
   Color? declineButtonColor;
 
   OndatoIosAppearance({
-    // this.logoImageBase64,
     this.progressColor,
     this.buttonColor,
     this.buttonTextColor,
@@ -104,7 +116,6 @@ class OndatoIosAppearance {
 
   Map<String, dynamic> toMap() {
     return {
-      // 'logoImageBase64': logoImageBase64,
       'progressColor': progressColor?.value,
       'buttonColor': buttonColor?.value,
       'buttonTextColor': buttonTextColor?.value,
@@ -120,6 +131,7 @@ class OndatoIosAppearance {
 class OndatoException implements Exception {
   OndatoError? error;
   String? identificationId;
+
   OndatoException(this.identificationId, error) {
     switch (error) {
       case 'cancelled':
@@ -137,4 +149,9 @@ class OndatoException implements Exception {
   }
 }
 
-enum OndatoError { cancelled, invalidServerResponse, invalidCredentials, unexpectedInternalError }
+enum OndatoError {
+  cancelled,
+  invalidServerResponse,
+  invalidCredentials,
+  unexpectedInternalError
+}

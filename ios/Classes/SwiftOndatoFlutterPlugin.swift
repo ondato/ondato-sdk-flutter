@@ -84,21 +84,16 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
             }
 
-//            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
-//                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
-//                ondatoAppearance.logoImage = UIImage(data: data)
-//            }
-
             configuration.appearance = ondatoAppearance
 
         }
 
         if let flowConfiguration : [String: Any] = args["flowConfiguration"] as? [String:Any]{
             let ondatoFlowConfiguration = OndatoFlowConfiguration()
-            ondatoFlowConfiguration.showSplashScreen = (flowConfiguration["showSplashScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showStartScreen = (flowConfiguration["showStartScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showSuccessWindow = (flowConfiguration["showSuccessWindow"] as? Bool) ?? true
             ondatoFlowConfiguration.removeSelfieFrame = (flowConfiguration["removeSelfieFrame"] as? Bool) ?? false
+            ondatoFlowConfiguration.skipRegistrationIfDriverLicense = (flowConfiguration["skipRegistrationIfDriverLicense"] as? Bool) ?? false
 
             configuration.flowConfiguration = ondatoFlowConfiguration;
 
