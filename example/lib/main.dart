@@ -17,8 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // String yourIdentificationId = 'YOUR_IDENTIFICATION_ID';
-  String yourIdentificationId = 'fb1213e5-506d-40e5-86f3-824177a38e59';
+  String yourIdentificationId = 'YOUR_IDENTIFICATION_ID';
   bool ondatoInitialized = false;
 
   @override
@@ -77,8 +76,7 @@ class _MyAppState extends State<MyApp> {
                     onPressed: () => startIdentification(),
                     child: Text('Start Identification'),
                   )
-                : CircularProgressIndicator()
-        ),
+                : CircularProgressIndicator()),
       ),
     );
   }

@@ -40,19 +40,24 @@ class OndatoServiceConfiguration {
 
 class OndatoFlowConfiguration {
 
+
   /// Should the start screen be shown
   bool showStartScreen;
 
-  // Should the splash screen be shown
+  /// ANDROID ONLY Should the start screen be shown. Does not affect iOS
+  bool showSplashScreen;
+
+  // iOS ONLY Should the splash screen be shown. Does not affect Android
   bool showSuccessWindow;
 
-  // Remove selfie frame
+  // iOS ONLY - Remove selfie frame. Does not affect Android
   bool removeSelfieFrame;
 
-  // Remove selfie frame
+  // iOS ONLY Remove selfie frame. Does not affect Android
   bool skipRegistrationIfDriverLicense;
 
   OndatoFlowConfiguration({
+    this.showSplashScreen = true,
     this.showStartScreen = true,
     this.showSuccessWindow = true,
     this.removeSelfieFrame = false,
@@ -61,6 +66,7 @@ class OndatoFlowConfiguration {
 
   Map<String, dynamic> toMap() {
     return {
+      'showSplashScreen': showSplashScreen,
       'showStartScreen': showStartScreen,
       'showSuccessWindow': showSuccessWindow,
       'removeSelfieFrame': removeSelfieFrame,
@@ -70,6 +76,7 @@ class OndatoFlowConfiguration {
 
   factory OndatoFlowConfiguration.fromMap(Map<String, dynamic> map) {
     return OndatoFlowConfiguration(
+      showSplashScreen: map['showSplashScreen'],
       showStartScreen: map['showStartScreen'],
       showSuccessWindow: map['showSuccessWindow'],
       removeSelfieFrame: map['removeSelfieFrame'],

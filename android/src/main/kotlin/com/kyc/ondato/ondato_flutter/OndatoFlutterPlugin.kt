@@ -47,7 +47,7 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
 
   private fun startIdentification(result: Result) {
       try {
-          Ondato.starIdentification(mContext, object : Ondato.ResultListener {
+          Ondato.startIdentification(mContext, object : Ondato.ResultListener {
               override fun onSuccess(identificationId: String?) {
                   result.success(mapOf("identificationId" to identificationId))
               }
