@@ -103,6 +103,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             configuration.mode = mode == "live" ? OndatoEnvironment.live : OndatoEnvironment.test
         }
 
+
         if let language :  String = args["language"] as? String {
             var selectedLanguage : OndatoSDK.OndatoSupportedLanguage
             switch language {
@@ -118,6 +119,22 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ET
             case "ru":
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RU
+            case "sq":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.SQ
+            case "bg":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.BG
+            case "es":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ES
+            case "fr":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.FR
+            case "el":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EL
+            case "it":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.IT
+            case "nl":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.NL
+            case "ro":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RO
             default:
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
             }

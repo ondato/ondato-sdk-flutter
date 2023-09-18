@@ -102,6 +102,14 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
         "et" -> lang = Language.Estonian
         "ru" -> lang = Language.Russian
         "en" -> lang = Language.English
+        "sq" -> lang = Language.Albanian
+        "bg" -> lang = Language.Bulgarian
+        "es" -> lang = Language.Spanish
+        "fr" -> lang = Language.French
+        "el" -> lang = Language.Greek
+        "it" -> lang = Language.Italian
+        "nl" -> lang = Language.Dutch
+        "ro" -> lang = Language.Romanian
     }
     return lang
   }
