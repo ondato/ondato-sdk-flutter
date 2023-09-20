@@ -84,21 +84,16 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
             }
 
-//            if let logoImageBase64 : String = appearance["logoImageBase64"] as? String {
-//                let data : Data = Data(base64Encoded: logoImageBase64, options: .ignoreUnknownCharacters)!
-//                ondatoAppearance.logoImage = UIImage(data: data)
-//            }
-
             configuration.appearance = ondatoAppearance
 
         }
 
         if let flowConfiguration : [String: Any] = args["flowConfiguration"] as? [String:Any]{
             let ondatoFlowConfiguration = OndatoFlowConfiguration()
-            ondatoFlowConfiguration.showSplashScreen = (flowConfiguration["showSplashScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showStartScreen = (flowConfiguration["showStartScreen"] as? Bool) ?? true
             ondatoFlowConfiguration.showSuccessWindow = (flowConfiguration["showSuccessWindow"] as? Bool) ?? true
             ondatoFlowConfiguration.removeSelfieFrame = (flowConfiguration["removeSelfieFrame"] as? Bool) ?? false
+            ondatoFlowConfiguration.skipRegistrationIfDriverLicense = (flowConfiguration["skipRegistrationIfDriverLicense"] as? Bool) ?? false
 
             configuration.flowConfiguration = ondatoFlowConfiguration;
 
@@ -107,6 +102,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
 
             configuration.mode = mode == "live" ? OndatoEnvironment.live : OndatoEnvironment.test
         }
+
 
         if let language :  String = args["language"] as? String {
             var selectedLanguage : OndatoSDK.OndatoSupportedLanguage
@@ -123,6 +119,22 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ET
             case "ru":
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RU
+            case "sq":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.SQ
+            case "bg":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.BG
+            case "es":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ES
+            case "fr":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.FR
+            case "el":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EL
+            case "it":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.IT
+            case "nl":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.NL
+            case "ro":
+                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RO
             default:
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
             }

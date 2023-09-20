@@ -51,16 +51,18 @@ ondato_flutter:
 
 ### Use plugin
 
+Add your identification id, start the application and press the button to start the identification process.
+
 ```dart
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 ...
-  onPressed: () async {
-      await OndatoFlutter.init(
-        identificationId: YOUR_IDENTIFICATION_ID,
-      );
-      await OndatoFlutter.startIdentification();
-    },
+String yourIdentificationId = 'YOUR_IDENTIFICATION_ID';
+
+TextButton(
+  onPressed: () => startIdentification(),
+  child: Text('Start Identification'),
+)
 ...
 ```
 
