@@ -18,7 +18,7 @@ dependencies:
     #   ref: 1.0.0-nullsafety-1
     path: ../
     # git:
-    #   url: git@github.com:ondato/ondato-sdk-flutter.git
+      # url: git@github.com:ondato/ondato-sdk-flutter.git
     #   ref: main
     # When depending on this package from a real application you should use:
     #   ondato_flutter: ^x.y.z

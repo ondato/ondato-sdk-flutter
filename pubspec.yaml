@@ -1,8 +1,8 @@
 name: ondato_flutter
 description: A new flutter plugin project.
-version: 0.3.0
+version: 0.4.0
 homepage: null
-repository: "https://github.com/ondato/sample-sdk-app-flutter"
+repository: "https://github.com/ondato/ondato-sdk-flutter"
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
