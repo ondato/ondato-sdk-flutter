@@ -140,7 +140,23 @@ class OndatoException implements Exception {
 
   OndatoException(this.identificationId, error) {
     if (Platform.isAndroid) {
-      print(error);
+      switch (error) {
+        case 'canceled by user':
+          this.error = OndatoError.cancelled;
+          break;
+        case 'bad response from server':
+          this.error = OndatoError.invalidServerResponse;
+          break;
+        case 'nfc is not supported in nfc mandatory or optional mode':
+          this.error = OndatoError.nfcNotSupported;
+          break;
+        case 'number of max attempts reached when trying to authenticate face':
+          this.error = OndatoError.maxAttemptsReached;
+          break;
+        case 'no available document types':
+          this.error = OndatoError.noAvailableDocumentTypes;
+          break;
+      }
     } else {
       switch (error) {
         case 'cancelled':
@@ -175,12 +191,19 @@ class OndatoException implements Exception {
 }
 
 enum OndatoError {
+  /// General errors
   cancelled,
-  consentDenied,
   invalidServerResponse,
+  nfcNotSupported,
+
+  /// iOS only
+  consentDenied,
   invalidCredentials,
   recorderPermissions,
   unexpectedInternalError,
   verificationFailed,
-  nfcNotSupported,
+
+  /// Android only
+  maxAttemptsReached,
+  noAvailableDocumentTypes,
 }
