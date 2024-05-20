@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String yourIdentificationId = "cca07ee8-f547-45ad-b818-7baf6010446e";
+  String yourIdentificationId = 'YOUR_IDENTIFICATION_ID';
   bool ondatoInitialized = false;
 
   @override
