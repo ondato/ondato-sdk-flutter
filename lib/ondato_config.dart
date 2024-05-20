@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
@@ -39,8 +40,6 @@ class OndatoServiceConfiguration {
 }
 
 class OndatoFlowConfiguration {
-
-
   /// Should the start screen be shown
   bool showStartScreen;
 
@@ -140,25 +139,47 @@ class OndatoException implements Exception {
   String? identificationId;
 
   OndatoException(this.identificationId, error) {
-    switch (error) {
-      case 'cancelled':
-        this.error = OndatoError.cancelled;
-        break;
-      case 'invalidServerResponse':
-        this.error = OndatoError.invalidServerResponse;
-        break;
-      case 'invalidCredentials':
-        this.error = OndatoError.invalidCredentials;
-        break;
-      default:
-        this.error = OndatoError.unexpectedInternalError;
+    if (Platform.isAndroid) {
+    } else {
+      switch (error) {
+        case 'cancelled':
+          this.error = OndatoError.cancelled;
+          break;
+        case 'consentDenied':
+          this.error = OndatoError.consentDenied;
+          break;
+        case 'invalidServerResponse':
+          this.error = OndatoError.invalidServerResponse;
+          break;
+        case 'invalidCredentials':
+          this.error = OndatoError.invalidCredentials;
+          break;
+        case 'recorderPermissions':
+          this.error = OndatoError.recorderPermissions;
+          break;
+        case 'unexpectedInternalError':
+          this.error = OndatoError.unexpectedInternalError;
+          break;
+        case 'verificationFailed':
+          this.error = OndatoError.verificationFailed;
+          break;
+        case 'nfcNotSupported':
+          this.error = OndatoError.nfcNotSupported;
+          break;
+        default:
+          this.error = OndatoError.unexpectedInternalError;
+      }
     }
   }
 }
 
 enum OndatoError {
   cancelled,
+  consentDenied,
   invalidServerResponse,
   invalidCredentials,
-  unexpectedInternalError
+  recorderPermissions,
+  unexpectedInternalError,
+  verificationFailed,
+  nfcNotSupported,
 }
