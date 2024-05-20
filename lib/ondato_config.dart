@@ -140,6 +140,7 @@ class OndatoException implements Exception {
 
   OndatoException(this.identificationId, error) {
     if (Platform.isAndroid) {
+      print(error);
     } else {
       switch (error) {
         case 'cancelled':
