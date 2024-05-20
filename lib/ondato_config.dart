@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
@@ -39,8 +40,6 @@ class OndatoServiceConfiguration {
 }
 
 class OndatoFlowConfiguration {
-
-
   /// Should the start screen be shown
   bool showStartScreen;
 
@@ -140,25 +139,71 @@ class OndatoException implements Exception {
   String? identificationId;
 
   OndatoException(this.identificationId, error) {
-    switch (error) {
-      case 'cancelled':
-        this.error = OndatoError.cancelled;
-        break;
-      case 'invalidServerResponse':
-        this.error = OndatoError.invalidServerResponse;
-        break;
-      case 'invalidCredentials':
-        this.error = OndatoError.invalidCredentials;
-        break;
-      default:
-        this.error = OndatoError.unexpectedInternalError;
+    if (Platform.isAndroid) {
+      switch (error) {
+        case 'canceled by user':
+          this.error = OndatoError.cancelled;
+          break;
+        case 'bad response from server':
+          this.error = OndatoError.invalidServerResponse;
+          break;
+        case 'nfc is not supported in nfc mandatory or optional mode':
+          this.error = OndatoError.nfcNotSupported;
+          break;
+        case 'number of max attempts reached when trying to authenticate face':
+          this.error = OndatoError.maxAttemptsReached;
+          break;
+        case 'no available document types':
+          this.error = OndatoError.noAvailableDocumentTypes;
+          break;
+      }
+    } else {
+      switch (error) {
+        case 'cancelled':
+          this.error = OndatoError.cancelled;
+          break;
+        case 'consentDenied':
+          this.error = OndatoError.consentDenied;
+          break;
+        case 'invalidServerResponse':
+          this.error = OndatoError.invalidServerResponse;
+          break;
+        case 'invalidCredentials':
+          this.error = OndatoError.invalidCredentials;
+          break;
+        case 'recorderPermissions':
+          this.error = OndatoError.recorderPermissions;
+          break;
+        case 'unexpectedInternalError':
+          this.error = OndatoError.unexpectedInternalError;
+          break;
+        case 'verificationFailed':
+          this.error = OndatoError.verificationFailed;
+          break;
+        case 'nfcNotSupported':
+          this.error = OndatoError.nfcNotSupported;
+          break;
+        default:
+          this.error = OndatoError.unexpectedInternalError;
+      }
     }
   }
 }
 
 enum OndatoError {
+  /// General errors
   cancelled,
   invalidServerResponse,
+  nfcNotSupported,
+
+  /// iOS only
+  consentDenied,
   invalidCredentials,
-  unexpectedInternalError
+  recorderPermissions,
+  unexpectedInternalError,
+  verificationFailed,
+
+  /// Android only
+  maxAttemptsReached,
+  noAvailableDocumentTypes,
 }

@@ -1,3 +1,7 @@
+## 0.5.0
+- feat: Ondato Android SDK updated to 2.5.4 and iOS SDKs updated to 2.5.2 version;
+- fix: `OndatoException` now has additional fields which are corresponding to the error fields in the native Ondato SDK;
+
 ## 0.3.0
 
 - **BREAKING**: refactor: removed deprecated `AccessToken` from `OndataCredentials`;

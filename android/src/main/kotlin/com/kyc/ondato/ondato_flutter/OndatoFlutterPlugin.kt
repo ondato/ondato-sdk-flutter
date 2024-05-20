@@ -59,7 +59,7 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
                    result.success(
                        mapOf(
                            "identificationId" to identificationId,
-                           "error" to error.message
+                           "error" to error.message.toString()
                        )
                    )
               }

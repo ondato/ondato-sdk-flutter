@@ -3,7 +3,7 @@
 # Run `pod lib lint ondato_flutter.podspec` to validate before publishing.
 #
 
-ondato_version = '2.5.2'
+ondato_version = '2.5.3'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter'
   s.version          = '0.4.0'

@@ -160,7 +160,33 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
 
                 func flowDidFail(identificationId: String?, error: OndatoServiceError) {
                     print("ONDATO PLUGIN: Identification Failed!");
-                    result(["identificationId": identificationId, "error": String(error.description)])
+                    /// Check type of OndatoServiceError and return error message
+                    var errorString = "unexpectedInternalError"
+                    /// If error is not nil, return error type.rawValue
+                        /// Switch rawValue to return error message
+                    print(error.type.rawValue);
+                    switch error.type.rawValue {
+                        case 0:
+                            errorString = "cancelled"
+                        case 1:
+                            errorString = "consentDenied"
+                        case 2:
+                            errorString = "invalidServerResponse"
+                        case 3:
+                            errorString = "invalidCredentials"
+                        case 4:
+                            errorString = "recorderPermissions"
+                        case 5:
+                            errorString = "unexpectedInternalError"
+                        case 6:
+                            errorString = "verificationFailed"
+                        case 7:
+                            errorString = "nfcNotSupported"
+                        default:
+                            errorString = "unexpectedInternalError"
+                    }
+                    print(errorString);
+                    result(["identificationId": identificationId, "error": String(errorString)])
                 }
             }
             let flowDelegate = FlowDelegate(r: flutterResult)
