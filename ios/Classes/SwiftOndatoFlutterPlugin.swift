@@ -171,17 +171,53 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                         case 1:
                             errorString = "consentDenied"
                         case 2:
-                            errorString = "invalidServerResponse"
+                            errorString = "faceDataNotPresent"
                         case 3:
-                            errorString = "invalidCredentials"
+                            errorString = "invalidServerResponse"
                         case 4:
-                            errorString = "recorderPermissions"
+                            errorString = "invalidCredentials"
                         case 5:
-                            errorString = "unexpectedInternalError"
+                            errorString = "recorderPermissions"
                         case 6:
-                            errorString = "verificationFailed"
+                            errorString = "recorderStartError"
                         case 7:
+                            errorString = "recorderEndError"
+                        case 8:
+                            errorString = "verificationFailed"
+                        case 9:
                             errorString = "nfcNotSupported"
+                        case 10:
+                            errorString = "accessToken"
+                        case 11:
+                            errorString = "idvConfig"
+                        case 12:
+                            errorString = "idvSetup"
+                        case 13:
+                            errorString = "facetecSdk"
+                        case 14:
+                            errorString = "faceSetup"
+                        case 15:
+                            errorString = "facetecLicense"
+                        case 16:
+                            errorString = "kycCompleted"
+                        case 17:
+                            errorString = "kycConfig"
+                        case 18:
+                            errorString = "kycId"
+                        case 19:
+                            errorString = "kycSetup"
+                        case 20:
+                            errorString = "mrzScanner"
+                        case 21:
+                            errorString = "personalCodeUpload"
+                        case 22:
+                            errorString = "recordingUpload"
+                        case 23:
+                            errorString = "restartFailed"
+                        case 24:
+                            errorString = "verificationFailedNoStatus"
+                        case 25:
+                            errorString = "verificationStatusFailed"
                         default:
                             errorString = "unexpectedInternalError"
                     }

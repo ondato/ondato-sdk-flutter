@@ -165,6 +165,9 @@ class OndatoException implements Exception {
         case 'consentDenied':
           this.error = OndatoError.consentDenied;
           break;
+        case 'faceDataNotPresent':
+          this.error = OndatoError.faceDataNotPresent;
+          break;
         case 'invalidServerResponse':
           this.error = OndatoError.invalidServerResponse;
           break;
@@ -174,14 +177,65 @@ class OndatoException implements Exception {
         case 'recorderPermissions':
           this.error = OndatoError.recorderPermissions;
           break;
-        case 'unexpectedInternalError':
-          this.error = OndatoError.unexpectedInternalError;
+        case 'recorderStartError':
+          this.error = OndatoError.recorderStartError;
+          break;
+        case 'recorderEndError':
+          this.error = OndatoError.recorderEndError;
           break;
         case 'verificationFailed':
           this.error = OndatoError.verificationFailed;
           break;
         case 'nfcNotSupported':
           this.error = OndatoError.nfcNotSupported;
+          break;
+        case 'accessToken':
+          this.error = OndatoError.accessToken;
+          break;
+        case 'idvConfig':
+          this.error = OndatoError.idvConfig;
+          break;
+        case 'idvSetup':
+          this.error = OndatoError.idvSetup;
+          break;
+        case 'facetecSdk':
+          this.error = OndatoError.facetecSdk;
+          break;
+        case 'faceSetup':
+          this.error = OndatoError.faceSetup;
+          break;
+        case 'facetecLicense':
+          this.error = OndatoError.facetecLicense;
+          break;
+        case 'kycCompleted':
+          this.error = OndatoError.kycCompleted;
+          break;
+        case 'kycConfig':
+          this.error = OndatoError.kycConfig;
+          break;
+        case 'kycId':
+          this.error = OndatoError.kycId;
+          break;
+        case 'kycSetup':
+          this.error = OndatoError.kycSetup;
+          break;
+        case 'mrzScanner':
+          this.error = OndatoError.mrzScanner;
+          break;
+        case 'personalCodeUpload':
+          this.error = OndatoError.personalCodeUpload;
+          break;
+        case 'recordingUpload':
+          this.error = OndatoError.recordingUpload;
+          break;
+        case 'restartFailed':
+          this.error = OndatoError.restartFailed;
+          break;
+        case 'verificationFailedNoStatus':
+          this.error = OndatoError.verificationFailedNoStatus;
+          break;
+        case 'verificationStatusFailed':
+          this.error = OndatoError.verificationStatusFailed;
           break;
         default:
           this.error = OndatoError.unexpectedInternalError;
@@ -195,13 +249,32 @@ enum OndatoError {
   cancelled,
   invalidServerResponse,
   nfcNotSupported,
+  unexpectedInternalError,
 
   /// iOS only
   consentDenied,
+  faceDataNotPresent,
   invalidCredentials,
   recorderPermissions,
-  unexpectedInternalError,
+  recorderStartError,
+  recorderEndError,
   verificationFailed,
+  accessToken,
+  idvConfig,
+  idvSetup,
+  facetecSdk,
+  faceSetup,
+  facetecLicense,
+  kycCompleted,
+  kycConfig,
+  kycId,
+  kycSetup,
+  mrzScanner,
+  personalCodeUpload,
+  recordingUpload,
+  restartFailed,
+  verificationFailedNoStatus,
+  verificationStatusFailed,
 
   /// Android only
   maxAttemptsReached,
