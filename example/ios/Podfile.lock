@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter (0.4.0):
+  - ondato_flutter (0.6.0):
     - Flutter
-    - OndatoSDK (= 2.5.3)
-  - OndatoSDK (2.5.3)
+    - OndatoSDK (= 2.5.7)
+  - OndatoSDK (2.5.7)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -21,8 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  ondato_flutter: e7fe3af63e7a153df0cd00dce893b7eb5ab75805
-  OndatoSDK: 883c8cef8d4a25d5aa4e63fe173ce80e3cfc819d
+  ondato_flutter: 0b907f348ce0a0aa563d1fd9f7580563de260221
+  OndatoSDK: a8786056d37622f91d9de73e403ceb822d6867cd
 
 PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
