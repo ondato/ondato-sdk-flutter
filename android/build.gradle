@@ -38,6 +38,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.kyc.ondato:sdk:2.5.4"
+    implementation "com.kyc.ondato:sdk:2.5.11"
     implementation 'androidx.annotation:annotation:1.2.0'
 }
