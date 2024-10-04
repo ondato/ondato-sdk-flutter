@@ -1,3 +1,6 @@
+## 2.5.0
+- fix: Fix Android build error
+
 ## 0.7.0
 - feat: Ondato iOS SDK updated to 2.5.10
 - feat: Ondato Android SDK updated to 2.5.11
