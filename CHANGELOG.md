@@ -1,3 +1,6 @@
+## 2.5.1
+- feat: Enable NFC support for Android
+
 ## 2.5.0
 - fix: Fix Android build error
 
