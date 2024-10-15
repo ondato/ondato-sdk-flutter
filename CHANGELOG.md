@@ -1,3 +1,6 @@
+## 2.5.2
+- feat: Update iOS to 2.5.11
+
 ## 2.5.1
 - feat: Enable NFC support for Android
 
