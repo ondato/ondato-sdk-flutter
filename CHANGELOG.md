@@ -1,3 +1,6 @@
+##
+- feat: Update Android to 2.5.13
+
 ## 2.5.2
 - feat: Update iOS to 2.5.11
 
