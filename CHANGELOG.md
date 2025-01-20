@@ -1,4 +1,12 @@
-##
+## 2.6.0
+- feat: Updated Android to 2.6.0
+- feat: Updated iOS to 2.6.0
+- refactor: separated screen recorder package from core, in order to use it a new explicit import of the package needs to be done
+- refactor: separated NFC tag scanning package from core, in order to use it a new explicit import of the package needs to be done 
+- feat: raised Android compile SDK to API 34
+- feat: upgraded Gradle to 8.1
+
+## 2.5.3
 - feat: Update Android to 2.5.13
 
 ## 2.5.2

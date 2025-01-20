@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter (2.5.2):
+  - ondato_flutter (2.6.0):
     - Flutter
-    - OndatoSDK (= 2.5.11)
-  - OndatoSDK (2.5.11)
+    - OndatoSDK (= 2.6.0)
+  - OndatoSDK (2.6.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)

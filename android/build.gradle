@@ -2,14 +2,14 @@ group 'com.kyc.ondato.ondato_flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.8.0'
+    ext.kotlin_version = '1.9.20'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:8.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -19,6 +19,8 @@ rootProject.allprojects {
         google()
         jcenter()
         maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
+        maven { url 'https://jitpack.io' }
+        mavenLocal()
     }
 }
 
@@ -26,7 +28,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
+    namespace = 'com.kyc.ondato.ondato_flutter'
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -34,10 +37,19 @@ android {
     defaultConfig {
         minSdkVersion 21
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.kyc.ondato:sdk:2.5.13"
+    implementation "com.kyc.ondato:sdk:2.6.0"
     implementation 'androidx.annotation:annotation:1.2.0'
 }

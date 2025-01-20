@@ -51,13 +51,31 @@ ondato_flutter:
 
 ### Use plugin
 
-Add your identification id, start the application and press the button to start the identification process.
+Add your identification ID, start the application and press the button to start the identification process. Don't forget to initialise the SDK first!
 
 ```dart
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
 ...
 String yourIdentificationId = 'YOUR_IDENTIFICATION_ID';
+
+OndatoFlutter.init(
+  OndatoServiceConfiguration(
+    identificationId: yourIdentificationId, 
+    language: OndatoLanguage.en, // Could be any of the languages provided in the OndatoLanguage enum, default is "en"
+    mode: OndatoEnvironment.test, // Can be "test" or "live" environments on which the SDK will
+    flowConfiguration: OndatoFlowConfiguration( // customisation of identification flow
+      showSuccessWindow: true,
+      showStartScreen: true,
+    ),
+    appearance: OndatoIosAppearance( // customisation of UI elements for iOS
+      errorColor: Colors.orange,
+      progressColor: Colors.orange,
+    ),
+  ),
+);
+
+...
 
 TextButton(
   onPressed: () => startIdentification(),
@@ -112,4 +130,18 @@ OndatoServiceConfiguration(
     progressColor: Colors.orange,
   ),
 )
+```
+
+## Additional Functionalities
+
+Since version 2.6.0, the NFC reader and screen recorder functionalities were separated from the core package, meaning that if you want to use those as before, you'll need to import those separate packages explicitly. For convenience, two new Flutter packages were created, `ondato_flutter_nfc_reader` and `ondato_flutter_screen_recorder`, which contain NFC tag scanning and screen recording functionalities, respectively.
+
+To include those dependencies, the process is pretty much the same as you'd add `ondato_flutter` as a dependency in your pubspec.yaml file, just add a `path` parameter, which points directly to that particular feature package. For example:
+
+```
+ondato_flutter_nfc_reader:
+    git:
+      url: git@github.com:ondato/ondato-sdk-flutter.git
+      ref: main
+      path: ondato_flutter_nfc_reader
 ```
