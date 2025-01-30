@@ -3,9 +3,10 @@
 # Run `pod lib lint ondato_flutter_nfc_reader.podspec` to validate before publishing.
 #
 ondato_version = '2.6.0'
+ondato_flutter_version = '2.6.1'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_nfc_reader'
-  s.version          = '2.6.0'
+  s.version          = ondato_flutter_version
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.

@@ -4,9 +4,10 @@
 #
 
 ondato_version = '2.6.0'
+ondato_flutter_version = '2.6.1'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter'
-  s.version          = '2.6.0'
+  s.version          = ondato_flutter_version
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.

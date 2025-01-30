@@ -1,6 +1,6 @@
 name: ondato_flutter_nfc_reader
 description: "Ondato SDK Flutter plugin for NFC tag scanning."
-version: 2.6.0
+version: 2.6.1
 homepage:
 
 environment:
