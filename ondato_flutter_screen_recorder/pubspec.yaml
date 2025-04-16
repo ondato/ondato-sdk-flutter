@@ -1,10 +1,10 @@
 name: ondato_flutter_screen_recorder
 description: "Ondato SDK Flutter plugin for screen recording functionality"
-version: 2.6.1
+version: 2.6.2
 homepage:
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.7.2
   flutter: '>=3.3.0'
 
 dependencies:

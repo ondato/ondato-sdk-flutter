@@ -1,3 +1,7 @@
+## 2.6.2
+- feat: Updated Android to 2.6.3
+- feat: Updated Flutter and Gradle dependencies to latest available versions
+
 ## 2.6.1
 - feat: Updated Android to 2.6.1
 

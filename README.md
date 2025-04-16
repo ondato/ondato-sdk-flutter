@@ -26,7 +26,7 @@ ondato_flutter:
 
 ### Android
 
-1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 21`
+1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 24`
 
 2. In `android/app/src/main/AndroidManifest.xml` add `android:theme="@style/Theme.AppCompat.Light"`
 
