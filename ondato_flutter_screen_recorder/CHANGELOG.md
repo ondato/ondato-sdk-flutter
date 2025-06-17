@@ -1,3 +1,7 @@
+## 2.6.5
+
+* Updated screen recorder package to 2.6.5
+
 ## 2.6.1
 
 * Updated screen recorder package to 2.6.1

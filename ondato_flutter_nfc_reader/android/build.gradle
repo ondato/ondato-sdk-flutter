@@ -50,6 +50,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:nfc-reader:2.6.3"
+       implementation "com.kyc.ondato:nfc-reader:2.6.5"
     }
 }
