@@ -28,7 +28,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion 35
     namespace = 'com.kyc.ondato.ondato_flutter'
 
     sourceSets {
@@ -50,6 +50,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.kyc.ondato:sdk:2.6.5"
+    implementation "com.kyc.ondato:sdk:2.6.6"
     implementation 'androidx.annotation:annotation:1.2.0'
 }
