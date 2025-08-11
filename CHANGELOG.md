@@ -1,3 +1,6 @@
+## 2.6.6
+- feat: Updated iOS to 2.6.6
+
 ## 2.6.5
 - feat: Updated Android to 2.6.5
 - feat: Updated iOS to 2.6.5

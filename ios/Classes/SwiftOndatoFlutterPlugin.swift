@@ -138,7 +138,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
             default:
                 selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
             }
-            OndatoLocalizeHelper.language = selectedLanguage
+            OndatoLocalizeHelper.shared.language = selectedLanguage
         }
         print("ONDATO PLUGIN: Initialize successful.");
         flutterResult(true)
