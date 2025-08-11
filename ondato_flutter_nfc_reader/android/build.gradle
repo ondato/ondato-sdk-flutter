@@ -29,7 +29,7 @@ android {
         namespace = "com.example.ondato_flutter_nfc_reader"
     }
 
-    compileSdk = 34
+    compileSdk = 35
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -50,6 +50,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:nfc-reader:2.6.5"
+       implementation "com.kyc.ondato:nfc-reader:2.6.6"
     }
 }

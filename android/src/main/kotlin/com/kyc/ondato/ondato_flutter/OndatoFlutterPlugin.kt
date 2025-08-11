@@ -46,7 +46,7 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
 
   private fun startIdentification(result: Result) {
       try {
-          Ondato.INSTANCE.startIdentification(mContext, object : Ondato.ResultListener {
+          Ondato.startIdentification(mContext, object : Ondato.ResultListener {
               override fun onSuccess(identificationId: String?) {
                   result.success(mapOf("identificationId" to identificationId))
               }
@@ -85,7 +85,7 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
             .setMode(getMode(mode)) //default is TEST
             .setLanguage(getLanguage(language))
             .build()
-        Ondato.INSTANCE.init(config)
+        Ondato.init(config)
         result.success(true)
     } else {
         result.error("", "", "Missing parameters")
