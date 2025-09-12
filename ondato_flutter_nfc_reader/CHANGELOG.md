@@ -1,3 +1,7 @@
+## 2.6.7
+
+* Updated iOS NFC package to 2.6.7
+
 ## 2.6.6
 
 * Updated NFC package to 2.6.6

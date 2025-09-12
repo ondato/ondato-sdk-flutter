@@ -1,17 +1,17 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter (2.6.6):
+  - ondato_flutter (2.6.7):
     - Flutter
-    - OndatoSDK (= 2.6.6)
-  - ondato_flutter_nfc_reader (2.6.6):
+    - OndatoSDK (= 2.6.7)
+  - ondato_flutter_nfc_reader (2.6.7):
     - Flutter
-    - OndatoNFC (= 2.6.6)
-  - ondato_flutter_screen_recorder (2.6.6):
+    - OndatoNFC (= 2.6.7)
+  - ondato_flutter_screen_recorder (2.6.7):
     - Flutter
-    - OndatoScreenRecorder (= 2.6.6)
-  - OndatoNFC (2.6.6)
-  - OndatoScreenRecorder (2.6.6)
-  - OndatoSDK (2.6.6)
+    - OndatoScreenRecorder (= 2.6.7)
+  - OndatoNFC (2.6.7)
+  - OndatoScreenRecorder (2.6.7)
+  - OndatoSDK (2.6.7)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -36,13 +36,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/ondato_flutter_screen_recorder/ios"
 
 SPEC CHECKSUMS:
-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  ondato_flutter: ee83ed28d3fa15c969fb1ce5429b5b5539676802
-  ondato_flutter_nfc_reader: 70f6f3b6b5f5298de426b23c2364e8af5dd51039
-  ondato_flutter_screen_recorder: f29b42620a9db8c1fb109ed36cb75ca8645e5fe6
-  OndatoNFC: b8aa50f0cfe8fde60b1517b5050ea7f275b927d9
-  OndatoScreenRecorder: 4ba010a0dfb48cb58ad49e0d9bb9365799063725
-  OndatoSDK: 4f3d0365cebf13132e5b8573ce1654b82c9989f5
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  ondato_flutter: 1ddd516632ab6f07f03b97de48996896eb535e4a
+  ondato_flutter_nfc_reader: 42cb0530d103bd52abfeb377f240ea7e34d8e569
+  ondato_flutter_screen_recorder: 6ce8ef3525d27881113df17c007465cc1820b7d8
+  OndatoNFC: 40d7ee6029f3d76f67e0e6e857717c909d8c260e
+  OndatoScreenRecorder: 23ef9e824206057a80a58033c957e93bfcfd12d6
+  OndatoSDK: 4e57f7aa80a8cd98b3e3291cf5a3d7177320cb00
 
 PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
