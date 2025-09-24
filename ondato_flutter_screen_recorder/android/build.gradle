@@ -2,7 +2,7 @@ group = "com.example.ondato_flutter_screen_recorder"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "1.9.20"
+    ext.kotlin_version = "2.1.0"
     repositories {
         google()
         mavenCentral()
@@ -50,6 +50,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:recorder:2.6.6"
+       implementation "com.kyc.ondato:recorder:2.6.7"
     }
 }

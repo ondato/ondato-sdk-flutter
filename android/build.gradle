@@ -2,7 +2,7 @@ group 'com.kyc.ondato.ondato_flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '2.0.21'
+    ext.kotlin_version = '2.1.0'
     repositories {
         google()
         jcenter()
@@ -50,6 +50,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.kyc.ondato:sdk:2.6.6"
+    implementation "com.kyc.ondato:sdk:2.6.7"
     implementation 'androidx.annotation:annotation:1.2.0'
 }

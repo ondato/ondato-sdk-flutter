@@ -1,6 +1,6 @@
 ## 2.6.7
 
-* Updated iOS screen recorder package to 2.6.7
+* Updated screen recorder package to 2.6.7
 
 ## 2.6.6
 
