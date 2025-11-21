@@ -36,110 +36,44 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
     }
 
     func create(call:
-                    FlutterMethodCall, flutterResult: FlutterResult) -> Void {
+                FlutterMethodCall, flutterResult: FlutterResult) -> Void {
         guard let args = call.arguments as? [String: Any] else {
             return}
         guard let identificationId : String = args["identificationId"] as? String else {
             flutterResult(false)
             return
         }
-
+        
         Ondato.sdk.setIdentityVerificationId(identificationId)
-
+        
         let configuration: OndatoServiceConfiguration = Ondato.sdk.configuration
-        if let appearance : [String: Any] = args["appearance"] as? [String:Any]{
-            let ondatoAppearance =  OndatoAppearance()
-
-            if let buttonColor : Int = appearance["buttonColor"] as? Int {
-                print("Button color \(buttonColor)")
-                ondatoAppearance.buttonColor = buttonColor.toUIColor()
-            }
-
-            if let buttonTextColor : Int = appearance["buttonTextColor"] as? Int {
-                ondatoAppearance.buttonTextColor = buttonTextColor.toUIColor()
-            }
-
-            if let errorColor : Int = appearance["errorColor"] as? Int {
-                ondatoAppearance.errorColor = errorColor.toUIColor()
-            }
-
-            if let errorTextColor : Int = appearance["errorTextColor"] as? Int {
-                ondatoAppearance.errorTextColor = errorTextColor.toUIColor()
-            }
-
-
-            if let errorTextColor : Int = appearance["errorTextColor"] as? Int {
-                ondatoAppearance.errorTextColor = errorTextColor.toUIColor()
-            }
-
-            if let headerColor : Int = appearance["headerColor"] as? Int {
-                ondatoAppearance.consentWindow.header.color = headerColor.toUIColor()
-            }
-
-            if let acceptButtonColor : Int = appearance["acceptButtonColor"] as? Int {
-                ondatoAppearance.consentWindow.acceptButton.backgroundColor = acceptButtonColor.toUIColor()
-            }
-
-            if let declineButtonColor : Int = appearance["declineButtonColor"] as? Int {
-                ondatoAppearance.consentWindow.declineButton.backgroundColor = declineButtonColor.toUIColor()
-            }
-
-            configuration.appearance = ondatoAppearance
-
-        }
-
-        if let flowConfiguration : [String: Any] = args["flowConfiguration"] as? [String:Any]{
-            let ondatoFlowConfiguration = OndatoFlowConfiguration()
-            ondatoFlowConfiguration.showStartScreen = (flowConfiguration["showStartScreen"] as? Bool) ?? true
-            ondatoFlowConfiguration.showSuccessWindow = (flowConfiguration["showSuccessWindow"] as? Bool) ?? true
-            ondatoFlowConfiguration.removeSelfieFrame = (flowConfiguration["removeSelfieFrame"] as? Bool) ?? false
+        
+        if let flowConfiguration : [String: Any] = args["flowConfiguration"] as? [String:Any] {
+            let ondatoFlowConfiguration = configuration.flowConfiguration
             ondatoFlowConfiguration.skipRegistrationIfDriverLicense = (flowConfiguration["skipRegistrationIfDriverLicense"] as? Bool) ?? false
-
+            ondatoFlowConfiguration.showTranslationKeys = (flowConfiguration["showTranslationKeys"] as? Bool) ?? false
+            ondatoFlowConfiguration.showNoInternetConnectionView = (flowConfiguration["showNoInternetConnectionView"] as? Bool) ?? true
+            ondatoFlowConfiguration.disablePdfFileUpload = (flowConfiguration["disablePdfFileUpload"] as? Bool) ?? false
+            ondatoFlowConfiguration.switchPrimaryButtons = (flowConfiguration["switchPrimaryButtons"] as? Bool) ?? false
+            
             configuration.flowConfiguration = ondatoFlowConfiguration;
-
         }
+        
+        if let jsonConfiguration: String = args["jsonConfiguration"] as? String {
+            try? Ondato.sdk.setWhitelabel(Data(jsonConfiguration.utf8))
+        }
+        
+        
         if let mode : String = args["mode"] as? String {
-
             configuration.mode = mode == "live" ? OndatoEnvironment.live : OndatoEnvironment.test
         }
-
-
-        if let language :  String = args["language"] as? String {
-            var selectedLanguage : OndatoSDK.OndatoSupportedLanguage
-            switch language {
-            case "en":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
-            case "de":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.DE
-            case "lt":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.LT
-            case "lv":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.LV
-            case "et":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ET
-            case "ru":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RU
-            case "sq":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.SQ
-            case "bg":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.BG
-            case "es":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.ES
-            case "fr":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.FR
-            case "el":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EL
-            case "it":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.IT
-            case "nl":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.NL
-            case "ro":
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.RO
-            default:
-                selectedLanguage = OndatoSDK.OndatoSupportedLanguage.EN
-            }
-            OndatoLocalizeHelper.language = selectedLanguage
+        
+        
+        if let language: String = args["language"] as? String,
+           let ondatoLanguage = OndatoSupportedLanguage(rawValue: language) {
+            OndatoLocalizeHelper.shared.setLangauge(ondatoLanguage)
         }
+        
         print("ONDATO PLUGIN: Initialize successful.");
         flutterResult(true)
     }
@@ -171,53 +105,21 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                         case 1:
                             errorString = "consentDenied"
                         case 2:
-                            errorString = "faceDataNotPresent"
-                        case 3:
                             errorString = "invalidServerResponse"
-                        case 4:
+                        case 3:
                             errorString = "invalidCredentials"
-                        case 5:
+                        case 4:
                             errorString = "recorderPermissions"
+                        case 5:
+                            errorString = "unexpectedInternalError"
                         case 6:
-                            errorString = "recorderStartError"
-                        case 7:
-                            errorString = "recorderEndError"
-                        case 8:
                             errorString = "verificationFailed"
-                        case 9:
+                        case 7:
                             errorString = "nfcNotSupported"
-                        case 10:
-                            errorString = "accessToken"
-                        case 11:
-                            errorString = "idvConfig"
-                        case 12:
-                            errorString = "idvSetup"
-                        case 13:
-                            errorString = "facetecSdk"
-                        case 14:
-                            errorString = "faceSetup"
-                        case 15:
-                            errorString = "facetecLicense"
-                        case 16:
-                            errorString = "kycCompleted"
-                        case 17:
-                            errorString = "kycConfig"
-                        case 18:
-                            errorString = "kycId"
-                        case 19:
-                            errorString = "kycSetup"
-                        case 20:
-                            errorString = "mrzScanner"
-                        case 21:
-                            errorString = "personalCodeUpload"
-                        case 22:
-                            errorString = "recordingUpload"
-                        case 23:
-                            errorString = "restartFailed"
-                        case 24:
-                            errorString = "verificationFailedNoStatus"
-                        case 25:
-                            errorString = "verificationStatusFailed"
+                        case 8:
+                            errorString = "missingModule"
+                        case 9:
+                            errorString = "hostCanceled"
                         default:
                             errorString = "unexpectedInternalError"
                     }
