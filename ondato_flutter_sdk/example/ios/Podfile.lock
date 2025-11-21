@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - ondato_flutter (3.0.7):
+    - Flutter
+    - OndatoSDK (= 3.0.7)
+  - OndatoSDK (3.0.7)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - ondato_flutter (from `.symlinks/plugins/ondato_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - OndatoSDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  ondato_flutter:
+    :path: ".symlinks/plugins/ondato_flutter/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  ondato_flutter: a93adb852f00c0f0298abc593f9945a60345dcff
+  OndatoSDK: 244db990a4f51776f4dda91fb481faf2e32da8ec
+
+PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
+
+COCOAPODS: 1.15.2

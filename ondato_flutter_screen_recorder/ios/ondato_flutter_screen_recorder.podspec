@@ -2,11 +2,10 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint ondato_flutter_screen_recorder.podspec` to validate before publishing.
 #
-ondato_version = '2.6.7'
-ondato_flutter_version = '2.6.7'
+ondato_version = '3.2.0'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_screen_recorder'
-  s.version          = ondato_flutter_version
+  s.version          = '3.2.0'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.
