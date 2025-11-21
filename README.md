@@ -18,7 +18,7 @@ To use this plugin:
 Add `ondato_flutter` as a dependency in your pubspec.yaml file;
 
 ```
-ondato_flutter:
+ondato_flutter_sdk:
     git:
       url: git@github.com:ondato/ondato-sdk-flutter.git
       ref: main
@@ -27,7 +27,7 @@ ondato_flutter:
 
 ### Android
 
-1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 24`
+1. Go to `android/app/build.gradle` and change minSdkVersion to `minSdkVersion 26`
 
 2. In `android/app/src/main/AndroidManifest.xml` add `android:theme="@style/Theme.AppCompat.Light"`
 
