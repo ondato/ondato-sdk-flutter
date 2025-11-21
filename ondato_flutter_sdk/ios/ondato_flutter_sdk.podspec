@@ -4,6 +4,7 @@
 #
 
 ondato_version = '3.2.0'
+ondato_flutter_version = '3.2.0'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_sdk'
   s.version          = '3.2.0'

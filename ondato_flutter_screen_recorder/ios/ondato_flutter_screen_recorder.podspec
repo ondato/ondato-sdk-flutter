@@ -3,6 +3,7 @@
 # Run `pod lib lint ondato_flutter_screen_recorder.podspec` to validate before publishing.
 #
 ondato_version = '3.2.0'
+ondato_flutter_version = '3.2.0'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_screen_recorder'
   s.version          = '3.2.0'
