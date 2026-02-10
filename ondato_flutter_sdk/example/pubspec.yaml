@@ -32,6 +32,9 @@ dependencies:
   ondato_flutter_screen_recorder:
     path: ../../ondato_flutter_screen_recorder
 
+  ondato_flutter_document_autoresolver:
+    path: ../../ondato_flutter_document_autoresolver
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

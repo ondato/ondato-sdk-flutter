@@ -3,11 +3,11 @@
 # Run `pod lib lint ondato_flutter.podspec` to validate before publishing.
 #
 
-ondato_version = '3.2.0'
-ondato_flutter_version = '3.2.0'
+ondato_version = '3.2.1'
+ondato_flutter_version = '3.2.1'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_sdk'
-  s.version          = '3.2.0'
+  s.version          = '3.2.1'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.

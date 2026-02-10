@@ -1,10 +1,10 @@
-name: ondato_flutter_nfc_reader
-description: "Ondato SDK Flutter plugin for NFC tag scanning."
+name: ondato_flutter_document_autoresolver
+description: "Ondato SDK Flutter plugin for automatic document capture."
 version: 3.3.0
 homepage:
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.9.0
   flutter: '>=3.3.0'
 
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -35,10 +35,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.ondato_flutter_nfc_reader
-        pluginClass: OndatoFlutterNfcReaderPlugin
+        package: com.example.ondato_flutter_document_autoresolver
+        pluginClass: OndatoFlutterDocumentAutoresolverPlugin
       ios:
-        pluginClass: OndatoFlutterNfcReaderPlugin
+        pluginClass: OndatoFlutterDocumentAutoresolverPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

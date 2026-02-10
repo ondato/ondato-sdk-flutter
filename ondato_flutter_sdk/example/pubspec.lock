@@ -115,27 +115,34 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.16.0"
+  ondato_flutter_document_autoresolver:
+    dependency: "direct main"
+    description:
+      path: "../../ondato_flutter_document_autoresolver"
+      relative: true
+    source: path
+    version: "3.3.0"
   ondato_flutter_nfc_reader:
     dependency: "direct main"
     description:
       path: "../../ondato_flutter_nfc_reader"
       relative: true
     source: path
-    version: "3.2.0"
+    version: "3.3.0"
   ondato_flutter_screen_recorder:
     dependency: "direct main"
     description:
       path: "../../ondato_flutter_screen_recorder"
       relative: true
     source: path
-    version: "3.2.0"
+    version: "3.3.0"
   ondato_flutter_sdk:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "3.2.0"
+    version: "3.3.0"
   path:
     dependency: transitive
     description:
@@ -222,5 +229,5 @@ packages:
     source: hosted
     version: "14.3.1"
 sdks:
-  dart: ">=3.8.0-0 <4.0.0"
+  dart: ">=3.9.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"
