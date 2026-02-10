@@ -70,7 +70,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
         
         
         if let language: String = args["language"] as? String,
-           let ondatoLanguage = OndatoSupportedLanguage(rawValue: language) {
+           let ondatoLanguage = OndatoSupportedLanguage(identifier: language) {
             OndatoLocalizeHelper.shared.setLangauge(ondatoLanguage)
         }
         
