@@ -1,6 +1,6 @@
 name: ondato_flutter_document_autoresolver
 description: "Ondato SDK Flutter plugin for automatic document capture."
-version: 3.3.0
+version: 3.4.0
 homepage:
 
 environment:

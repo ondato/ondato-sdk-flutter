@@ -3,7 +3,7 @@ import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
 
-enum OndatoLanguage { en, lt, sq, bg, ca, cs, nl, et, fi, fr, de, el, hu, it, lv, pl, pt, ro, ru, es, sv, uk, vi }
+enum OndatoLanguage { en, lt, sq, bg, ca, zh, hr, cs, da, nl, et, fi, fr, de, el, hu, it, ko, lv, pl, pt, ro, ru, sk, sl, es, sv, th, uk, vi }
 
 extension OndatoEnvironmentExt on OndatoEnvironment {
   String? toMap() => this.toString().split('.').elementAt(1);
