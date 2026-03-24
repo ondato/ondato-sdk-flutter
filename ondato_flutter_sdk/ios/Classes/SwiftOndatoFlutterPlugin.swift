@@ -46,10 +46,10 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
         
         Ondato.sdk.setIdentityVerificationId(identificationId)
         
-        let configuration: OndatoServiceConfiguration = Ondato.sdk.configuration
+        var configuration: OndatoServiceConfiguration = Ondato.sdk.configuration
         
         if let flowConfiguration : [String: Any] = args["flowConfiguration"] as? [String:Any] {
-            let ondatoFlowConfiguration = configuration.flowConfiguration
+            var ondatoFlowConfiguration = configuration.flowConfiguration
             ondatoFlowConfiguration.skipRegistrationIfDriverLicense = (flowConfiguration["skipRegistrationIfDriverLicense"] as? Bool) ?? false
             ondatoFlowConfiguration.showTranslationKeys = (flowConfiguration["showTranslationKeys"] as? Bool) ?? false
             ondatoFlowConfiguration.showNoInternetConnectionView = (flowConfiguration["showNoInternetConnectionView"] as? Bool) ?? true
@@ -73,6 +73,8 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
            let ondatoLanguage = OndatoSupportedLanguage(identifier: language) {
             OndatoLocalizeHelper.shared.setLangauge(ondatoLanguage)
         }
+
+        Ondato.sdk.configuration = configuration
         
         print("ONDATO PLUGIN: Initialize successful.");
         flutterResult(true)
@@ -101,25 +103,29 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                     print(error.type.rawValue);
                     switch error.type.rawValue {
                         case 0:
-                            errorString = "cancelled"
+                            errorString = "badFlowSetup"
                         case 1:
-                            errorString = "consentDenied"
+                            errorString = "consentDeclined"
                         case 2:
-                            errorString = "invalidServerResponse"
+                            errorString = "failureExit"
                         case 3:
-                            errorString = "invalidCredentials"
+                            errorString = "invalidID"
                         case 4:
-                            errorString = "recorderPermissions"
+                            errorString = "unauthorized"
                         case 5:
-                            errorString = "unexpectedInternalError"
+                            errorString = "internalServerError"
                         case 6:
-                            errorString = "verificationFailed"
+                            errorString = "aborted"
                         case 7:
                             errorString = "nfcNotSupported"
                         case 8:
-                            errorString = "missingModule"
+                            errorString = "recorderFailure"
                         case 9:
-                            errorString = "hostCanceled"
+                            errorString = "tooManyAttempts"
+                        case 10:
+                            errorString = "noAvailableDocumentTypes"
+                        case 11:
+                            errorString = "generic"
                         default:
                             errorString = "unexpectedInternalError"
                     }

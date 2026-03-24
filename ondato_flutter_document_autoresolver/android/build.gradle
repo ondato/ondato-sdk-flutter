@@ -48,6 +48,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:document-autoresolver:3.3.0"
+       implementation "com.kyc.ondato:document-autoresolver:3.4.0"
     }
 }

@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.annotation.NonNull
 import com.ondato.sdk.Ondato
 import com.ondato.sdk.OndatoConfig
-import com.ondato.sdk.OndatoError
+import com.ondato.sdk.enums.OndatoError
 import com.ondato.sdk.enums.Language
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -103,8 +103,10 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
         "sq" -> lang = Language.Albanian
         "bg" -> lang = Language.Bulgarian
         "ca" -> lang = Language.Catalan
+        "hr" -> lang = Language.Croatian
         "cs" -> lang = Language.Czech
         "nl" -> lang = Language.Dutch
+        "da" -> lang = Language.Danish
         "et" -> lang = Language.Estonian
         "fi" -> lang = Language.Finnish
         "fr" -> lang = Language.French
@@ -112,15 +114,20 @@ class OndatoFlutterPlugin: FlutterPlugin, MethodCallHandler {
         "el" -> lang = Language.Greek
         "hu" -> lang = Language.Hungarian
         "it" -> lang = Language.Italian
+        "ko" -> lang = Language.Korean
         "lv" -> lang = Language.Latvian
         "pl" -> lang = Language.Polish
         "pt" -> lang = Language.Portuguese
         "ro" -> lang = Language.Romanian
         "ru" -> lang = Language.Russian
+        "sk" -> lang = Language.Slovak
+        "sl" -> lang = Language.Slovenian
         "es" -> lang = Language.Spanish
         "sv" -> lang = Language.Swedish
+        "th" -> lang = Language.Thai
         "uk" -> lang = Language.Ukrainian
         "vi" -> lang = Language.Vietnamese
+        "zh" -> lang = Language.Chinese
     }
     return lang
   }
