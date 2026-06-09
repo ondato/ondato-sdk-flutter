@@ -3,13 +3,19 @@ import 'dart:ui';
 
 enum OndatoEnvironment { test, live }
 
-enum OndatoLanguage { en, lt, sq, bg, ca, zh, hr, cs, da, nl, et, fi, fr, de, el, hu, it, ko, lv, pl, pt, ro, ru, sk, sl, es, sv, th, uk, vi }
+enum OndatoLanguage { en, lt, sq, bg, ca, zh, hr, cs, nl, da, et, fi, fr, de, el, hu, it, ko, lv, pl, ptPT, ptBR, ro, ru, es, sk, sl, sv, th, uk, vi }
+
+enum OndatoLoggingLevel { error, info, debug, verbose }
 
 extension OndatoEnvironmentExt on OndatoEnvironment {
   String? toMap() => this.toString().split('.').elementAt(1);
 }
 
 extension OndatoLanguageExt on OndatoLanguage {
+  String? toMap() => this.toString().split('.').elementAt(1);
+}
+
+extension OndatoLoggingLevelExt on OndatoLoggingLevel {
   String? toMap() => this.toString().split('.').elementAt(1);
 }
 
@@ -20,6 +26,8 @@ class OndatoServiceConfiguration {
   final OndatoLanguage language;
   final OndatoFlowConfiguration? flowConfiguration;
   final OndatoIosAppearance? appearance;
+  final OndatoLoggingLevel loggingLevel;
+  final String? consentTimeout;
 
   OndatoServiceConfiguration({
     required this.identificationId,
@@ -28,6 +36,8 @@ class OndatoServiceConfiguration {
     this.flowConfiguration,
     this.mode = OndatoEnvironment.test,
     this.language = OndatoLanguage.en,
+    this.loggingLevel = OndatoLoggingLevel.error,
+    this.consentTimeout,
   });
 
   Map<String, dynamic> toMap() {
@@ -37,40 +47,55 @@ class OndatoServiceConfiguration {
       'mode': mode.toMap(),
       'language': language.toMap(),
       'identificationId': identificationId,
-      'jsonConfiguration': jsonConfiguration
+      'loggingLevel': loggingLevel.toMap(),
+      'jsonConfiguration': jsonConfiguration,
+      'consentTimeout': consentTimeout
     };
   }
 }
 
 class OndatoFlowConfiguration {
-  // Should the global success screen be shown.
-  bool showSuccessWindow;
-
-  // Remove selfie frame. Does not affect Android
-  bool removeSelfieFrame;
-
   // Skip registration step for driver's license
   bool skipRegistrationIfDriverLicense;
 
+  // Show no network screen when there are Internet issues
+  bool showNoNetworkScreen;
+
+  // Should disable PDF file type upload for proof-of-address step
+  bool disablePdfFileUpload;
+
+  // Should switch primary and secondary buttons places
+  bool switchPrimaryButtonsDisplay;
+
+  // Disable the consent validation rule where the user needs to scroll to the bottom of the text in order to enable "I agree" button
+  bool disableScrollToBottomConsentRule; 
+
   OndatoFlowConfiguration({
-    this.showSuccessWindow = true,
-    this.removeSelfieFrame = false,
     this.skipRegistrationIfDriverLicense = false,
+    this.showNoNetworkScreen = true,
+    this.disablePdfFileUpload = false,
+    this.switchPrimaryButtonsDisplay = false,
+
+    this.disableScrollToBottomConsentRule = false
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'showSuccessWindow': showSuccessWindow,
-      'removeSelfieFrame': removeSelfieFrame,
       'skipRegistrationIfDriverLicense': skipRegistrationIfDriverLicense,
+      'showNoNetworkScreen': showNoNetworkScreen,
+      'disablePdfFileUpload': disablePdfFileUpload,
+      'switchPrimaryButtonsDisplay': switchPrimaryButtonsDisplay,
+      'disableScrollToBottomConsentRule': disableScrollToBottomConsentRule
     };
   }
 
   factory OndatoFlowConfiguration.fromMap(Map<String, dynamic> map) {
     return OndatoFlowConfiguration(
-      showSuccessWindow: map['showSuccessWindow'],
-      removeSelfieFrame: map['removeSelfieFrame'],
       skipRegistrationIfDriverLicense: map['skipRegistrationIfDriverLicense'],
+      showNoNetworkScreen: map['showNoNetworkScreen'],
+      disablePdfFileUpload: map['disablePdfFileUpload'],
+      switchPrimaryButtonsDisplay: map['switchPrimaryButtonsDisplay'],
+      disableScrollToBottomConsentRule: map['disableScrollToBottomConsentRule']
     );
   }
 }
@@ -113,14 +138,14 @@ class OndatoIosAppearance {
 
   Map<String, dynamic> toMap() {
     return {
-      'progressColor': progressColor?.value,
-      'buttonColor': buttonColor?.value,
-      'buttonTextColor': buttonTextColor?.value,
-      'errorColor': errorColor?.value,
-      'errorTextColor': errorTextColor?.value,
-      'headerColor': headerColor?.value,
-      'acceptButtonColor': acceptButtonColor?.value,
-      'declineButtonColor': declineButtonColor?.value,
+      'progressColor': progressColor?.toARGB32(),
+      'buttonColor': buttonColor?.toARGB32(),
+      'buttonTextColor': buttonTextColor?.toARGB32(),
+      'errorColor': errorColor?.toARGB32(),
+      'errorTextColor': errorTextColor?.toARGB32(),
+      'headerColor': headerColor?.toARGB32(),
+      'acceptButtonColor': acceptButtonColor?.toARGB32(),
+      'declineButtonColor': declineButtonColor?.toARGB32(),
     };
   }
 }

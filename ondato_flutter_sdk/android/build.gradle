@@ -1,17 +1,18 @@
-group 'com.kyc.ondato.ondato_flutter'
-version '1.0-SNAPSHOT'
-
 buildscript {
-    ext.kotlin_version = '2.2.0'
+    ext.kotlin_version = '2.2.20'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.3'
+        classpath 'com.android.tools.build:gradle:8.11.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
+}
+
+plugins {
+    id("com.android.library")
 }
 
 rootProject.allprojects {
@@ -24,8 +25,6 @@ rootProject.allprojects {
     }
     configurations.all {
         resolutionStrategy {
-            force("androidx.core:core:1.13.1")
-            force("androidx.core:core-ktx:1.13.1")
             force("androidx.appcompat:appcompat:1.6.1")
             force("androidx.appcompat:appcompat-resources:1.6.1")
             force("androidx.lifecycle:lifecycle-livedata-core:2.7.0")
@@ -36,11 +35,8 @@ rootProject.allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
 android {
-    compileSdkVersion 36
+    compileSdkVersion 37
     namespace = 'com.kyc.ondato.ondato_flutter'
 
     sourceSets {
@@ -51,18 +47,18 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.kyc.ondato:sdk-core:3.4.0"
+    implementation "com.kyc.ondato:sdk-core:3.5.0"
     implementation 'androidx.annotation:annotation:1.2.0'
 }
 

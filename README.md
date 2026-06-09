@@ -67,7 +67,10 @@ OndatoFlutter.init(
     mode: OndatoEnvironment.test, // Can be "test" or "live" environments on which the SDK will work on
     jsonConfiguration: jsonConfiguration, // Any UI customisation options (Whitelabel JSON file passed as string)
     flowConfiguration: OndatoFlowConfiguration( // customisation of identification flow
-      showSuccessWindow: true,
+      showNoNetworkScreen: true,
+      disablePdfFileUpload: false,
+      switchPrimaryButtonsDisplay: false,
+      disableScrollToBottomConsentRule: false,
     ),
     appearance: OndatoIosAppearance( // customisation of UI elements for iOS
       errorColor: Colors.orange,

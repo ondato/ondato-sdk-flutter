@@ -1,7 +1,15 @@
-.dart_tool/package_config_subset
-.dart_tool/package_config.json
-.dart_tool/package_graph.json
-.dart_tool/version
-.dart_tool/extension_discovery/devtools.json
-.dart_tool/extension_discovery/README.md
-.dart_tool/extension_discovery/vs_code.json
+.dart_tool/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.idea
+.dart_tool/*
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix

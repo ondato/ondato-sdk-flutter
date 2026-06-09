@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String yourIdentificationId = '<your identification ID>';
+  String yourIdentificationId = '019eac86-0f73-7716-a277-09c222d9823c';
   bool ondatoInitialized = false;
   String? jsonConfiguration;
 
@@ -36,8 +36,12 @@ class _MyAppState extends State<MyApp> {
         mode: OndatoEnvironment.test,
         jsonConfiguration: jsonConfiguration,
         flowConfiguration: OndatoFlowConfiguration(
-          showSuccessWindow: true,
+          showNoNetworkScreen: true,
+          disablePdfFileUpload: false,
+          switchPrimaryButtonsDisplay: false,
+          disableScrollToBottomConsentRule: false,
         ),
+        consentTimeout: "10000",
         appearance: OndatoIosAppearance(
           errorColor: Colors.orange,
           progressColor: Colors.orange,

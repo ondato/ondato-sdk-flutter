@@ -1,8 +1,5 @@
-group = "com.example.ondato_flutter_screen_recorder"
-version = "1.0-SNAPSHOT"
-
 buildscript {
-    ext.kotlin_version = "2.2.0"
+    ext.kotlin_version = "2.2.20"
     repositories {
         google()
         mavenCentral()
@@ -10,10 +7,15 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.7.3")
+        classpath("com.android.tools.build:gradle:8.11.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
+
+plugins {
+    id("com.android.library")
+}
+
 
 allprojects {
     repositories {
@@ -23,23 +25,20 @@ allprojects {
     }
 }
 
-apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
-
 android {
     if (project.android.hasProperty("namespace")) {
         namespace = "com.example.ondato_flutter_screen_recorder"
     }
 
-    compileSdk = 36
+    compileSdk = 37
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     sourceSets {
@@ -52,6 +51,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:screen-recorder:3.4.0"
+       implementation "com.kyc.ondato:screen-recorder:3.5.0"
     }
 }
