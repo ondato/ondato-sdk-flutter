@@ -3,24 +3,28 @@ import UIKit
 import OndatoSDK
 
 public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
+    
+    override init() { }
 
-     init(uiViewController:  UIKit.UIViewController) {
-        self.uiViewController = uiViewController
-    }
-
-    var uiViewController :  UIKit.UIViewController
+    var uiViewController :  UIKit.UIViewController!
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "ondato_flutter", binaryMessenger: registrar.messenger())
 
-        let viewController:  UIKit.UIViewController =
-                    (UIApplication.shared.delegate?.window??.rootViewController)!;
-
-        let instance = SwiftOndatoFlutterPlugin(uiViewController: viewController)
+        let instance = SwiftOndatoFlutterPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 
       public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+
+        let viewController = UIApplication.shared.connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }?
+            .rootViewController
+
+          if let viewController = viewController {
+              uiViewController = viewController
+          }
 
         switch call.method {
         case "getPlatformVersion":
@@ -100,8 +104,7 @@ public class SwiftOndatoFlutterPlugin: NSObject, FlutterPlugin {
                     var errorString = "unexpectedInternalError"
                     /// If error is not nil, return error type.rawValue
                         /// Switch rawValue to return error message
-                    print(error.type.rawValue);
-                    switch error.type.rawValue {
+                    switch error.rawValue {
                         case 0:
                             errorString = "badFlowSetup"
                         case 1:

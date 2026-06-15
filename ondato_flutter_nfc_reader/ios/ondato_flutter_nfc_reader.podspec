@@ -2,10 +2,10 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint ondato_flutter_nfc_reader.podspec` to validate before publishing.
 #
-ondato_version = '3.2.3'
+ondato_version = '3.5.1'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_nfc_reader'
-  s.version          = '3.2.3'
+  s.version          = '3.5.1'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.

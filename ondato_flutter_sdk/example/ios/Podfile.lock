@@ -1,21 +1,21 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter_document_autoresolver (3.2.1):
+  - ondato_flutter_document_autoresolver (3.2.3):
     - Flutter
-    - OndatoAutocapture (= 3.2.1)
-  - ondato_flutter_nfc_reader (3.2.1):
+    - OndatoAutocapture (= 3.2.3)
+  - ondato_flutter_nfc_reader (3.2.3):
     - Flutter
-    - OndatoNFC (= 3.2.1)
-  - ondato_flutter_screen_recorder (3.2.1):
+    - OndatoNFC (= 3.2.3)
+  - ondato_flutter_screen_recorder (3.2.3):
     - Flutter
-    - OndatoScreenRecorder (= 3.2.1)
-  - ondato_flutter_sdk (3.2.1):
+    - OndatoScreenRecorder (= 3.2.3)
+  - ondato_flutter_sdk (3.2.3):
     - Flutter
-    - OndatoSDK (= 3.2.1)
-  - OndatoAutocapture (3.2.1)
-  - OndatoNFC (3.2.1)
-  - OndatoScreenRecorder (3.2.1)
-  - OndatoSDK (3.2.1)
+    - OndatoSDK (= 3.2.3)
+  - OndatoAutocapture (3.2.3)
+  - OndatoNFC (3.2.3)
+  - OndatoScreenRecorder (3.2.3)
+  - OndatoSDK (3.2.3)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -45,14 +45,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  ondato_flutter_document_autoresolver: e2c3fb1f5b6a2b020090d05f9e3c2da261e6c885
-  ondato_flutter_nfc_reader: 3c7f1f0f027ed97a6c49afe13e98427ea2ac7c20
-  ondato_flutter_screen_recorder: 19f3b07a05445d66661ef3bfe4f062e35e16e9a3
-  ondato_flutter_sdk: ec513d53e0a1d6ce5c2b645518acb82a356df83d
-  OndatoAutocapture: 0723d9ff97762bb3dfbdd6bb61079b28efdc4c9d
-  OndatoNFC: 2bfeaca9160676b840eecaccc7d6313f59ffb598
-  OndatoScreenRecorder: 9d68b01786d2c1cd8ed2fe1d04dc0e7406e91a2d
-  OndatoSDK: 09c26e56ae3b9a0bc3f2e1552518cf07c105e3e0
+  ondato_flutter_document_autoresolver: b5896453feb8181c1ae180d2686fc0f294716c58
+  ondato_flutter_nfc_reader: 098cf66589b79dc79c863ae8454d6468d751f9db
+  ondato_flutter_screen_recorder: 54fafeca6e52fca205ddbbf8420e13be3f919094
+  ondato_flutter_sdk: 1a04cf6a06a26602dc9bb72a289178f45bce4c24
+  OndatoAutocapture: 25c4eb19049008242cbaa9b0afad1ae7bceff20e
+  OndatoNFC: d107d577b75c5b8a5452bbc1cd679a9e028ad5c8
+  OndatoScreenRecorder: ce544fc279780cf9e54d5f3c888a0272ef4b76f9
+  OndatoSDK: 799aaf3b45cc6cf2464d0473913ec77b50764751
 
 PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
