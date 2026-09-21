@@ -51,6 +51,6 @@ android {
     }
 
     dependencies {
-       implementation "com.kyc.ondato:screen-recorder:3.5.0"
+       implementation "com.kyc.ondato:screen-recorder:3.6.0"
     }
 }
