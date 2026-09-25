@@ -3,10 +3,10 @@
 # Run `pod lib lint ondato_flutter.podspec` to validate before publishing.
 #
 
-ondato_version = '3.5.1'
+ondato_version = '3.6.0'
 Pod::Spec.new do |s|
   s.name             = 'ondato_flutter_sdk'
-  s.version          = '3.5.1'
+  s.version          = '3.6.0'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -17,7 +17,8 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'OndatoSDK', ondato_version
+  s.dependency 'OndatoSDK-Core', ondato_version
+  s.dependency 'lottie-ios', '4.6.1'
   s.platform = :ios, '13.0'
 
   # Flutter.framework does not contain a i386 slice.

@@ -1,21 +1,23 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter_document_autoresolver (3.2.3):
+  - lottie-ios (4.6.1)
+  - ondato_flutter_document_autoresolver (3.6.0):
     - Flutter
-    - OndatoAutocapture (= 3.2.3)
-  - ondato_flutter_nfc_reader (3.2.3):
+    - OndatoAutocapture (= 3.6.0)
+  - ondato_flutter_nfc_reader (3.6.0):
     - Flutter
-    - OndatoNFC (= 3.2.3)
-  - ondato_flutter_screen_recorder (3.2.3):
+    - OndatoNFC (= 3.6.0)
+  - ondato_flutter_screen_recorder (3.6.0):
     - Flutter
-    - OndatoScreenRecorder (= 3.2.3)
-  - ondato_flutter_sdk (3.2.3):
+    - OndatoScreenRecorder (= 3.6.0)
+  - ondato_flutter_sdk (3.6.0):
     - Flutter
-    - OndatoSDK (= 3.2.3)
-  - OndatoAutocapture (3.2.3)
-  - OndatoNFC (3.2.3)
-  - OndatoScreenRecorder (3.2.3)
-  - OndatoSDK (3.2.3)
+    - lottie-ios (= 4.6.1)
+    - OndatoSDK-Core (= 3.6.0)
+  - OndatoAutocapture (3.6.0)
+  - OndatoNFC (3.6.0)
+  - OndatoScreenRecorder (3.6.0)
+  - OndatoSDK-Core (3.6.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -26,10 +28,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - lottie-ios
     - OndatoAutocapture
     - OndatoNFC
     - OndatoScreenRecorder
-    - OndatoSDK
+    - OndatoSDK-Core
 
 EXTERNAL SOURCES:
   Flutter:
@@ -44,16 +47,17 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/ondato_flutter_sdk/ios"
 
 SPEC CHECKSUMS:
-  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  ondato_flutter_document_autoresolver: b5896453feb8181c1ae180d2686fc0f294716c58
-  ondato_flutter_nfc_reader: 098cf66589b79dc79c863ae8454d6468d751f9db
-  ondato_flutter_screen_recorder: 54fafeca6e52fca205ddbbf8420e13be3f919094
-  ondato_flutter_sdk: 1a04cf6a06a26602dc9bb72a289178f45bce4c24
-  OndatoAutocapture: 25c4eb19049008242cbaa9b0afad1ae7bceff20e
-  OndatoNFC: d107d577b75c5b8a5452bbc1cd679a9e028ad5c8
-  OndatoScreenRecorder: ce544fc279780cf9e54d5f3c888a0272ef4b76f9
-  OndatoSDK: 799aaf3b45cc6cf2464d0473913ec77b50764751
+  Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
+  lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
+  ondato_flutter_document_autoresolver: 4f98ee890ff6611d530106bba757fde9a72e35d1
+  ondato_flutter_nfc_reader: 22d644de3154a714c154cdca9f390a6d4e8d289b
+  ondato_flutter_screen_recorder: b6e67f4c2357aeae3b3ef6fba3dcdf20d65cc5aa
+  ondato_flutter_sdk: 00c5179e46c6d9ea9f9f6c0edf502adcdd917d60
+  OndatoAutocapture: 6cb3bbe4606323586263f3ba2c292487033f35d5
+  OndatoNFC: 7c893e0a2fba5818961979922ff3676adf46c271
+  OndatoScreenRecorder: 224150edc9c62415a61a7df899c4996f2b80542c
+  OndatoSDK-Core: e10d2edbc8a120b3a242643213c123faa35e4d37
 
-PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
+PODFILE CHECKSUM: 24d6b503bbe7f5078229e8cfdd0e8fe4775aff25
 
 COCOAPODS: 1.16.2
