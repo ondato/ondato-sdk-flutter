@@ -1,21 +1,21 @@
 PODS:
   - Flutter (1.0.0)
-  - ondato_flutter_document_autoresolver (3.6.1):
+  - ondato_flutter_document_autoresolver (3.6.2):
     - Flutter
-    - OndatoAutocapture (= 3.6.1)
-  - ondato_flutter_nfc_reader (3.6.1):
+    - OndatoAutocapture (= 3.6.2)
+  - ondato_flutter_nfc_reader (3.6.2):
     - Flutter
-    - OndatoNFC (= 3.6.1)
-  - ondato_flutter_screen_recorder (3.6.1):
+    - OndatoNFC (= 3.6.2)
+  - ondato_flutter_screen_recorder (3.6.2):
     - Flutter
-    - OndatoScreenRecorder (= 3.6.1)
-  - ondato_flutter_sdk (3.6.1):
+    - OndatoScreenRecorder (= 3.6.2)
+  - ondato_flutter_sdk (3.6.2):
     - Flutter
-    - OndatoSDK-Core (= 3.6.1)
-  - OndatoAutocapture (3.6.1)
-  - OndatoNFC (3.6.1)
-  - OndatoScreenRecorder (3.6.1)
-  - OndatoSDK-Core (3.6.1)
+    - OndatoSDK-Core (= 3.6.2)
+  - OndatoAutocapture (3.6.2)
+  - OndatoNFC (3.6.2)
+  - OndatoScreenRecorder (3.6.2)
+  - OndatoSDK-Core (3.6.2)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -45,15 +45,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
-  ondato_flutter_document_autoresolver: 0cd4a415071780e3f64395490012789224da9c9a
-  ondato_flutter_nfc_reader: 633ace33a2a7bb4c729cbcc770f13b26e3258bf0
-  ondato_flutter_screen_recorder: 8f90b860acf282e9cdaca6f4ce78d852ba40bc9c
-  ondato_flutter_sdk: 4a3a503d6cf3a03edd9cc6e695927e5b9a7b0a91
-  OndatoAutocapture: ec30caf653c91925062fedd44b45841dfd846aa0
-  OndatoNFC: 947489276fc7ef02d4c96184886153c651c7b52a
-  OndatoScreenRecorder: d0bbea2e677a776fed2b274f05f3c8efc27a2bee
-  OndatoSDK-Core: c7ecc67dec86a7d0945a70008614344359204cfa
+  ondato_flutter_document_autoresolver: fde5547cb006b747eaaea3036caa4b7407ac65f5
+  ondato_flutter_nfc_reader: d640d4e1a2f39203bccc6c771df0dba0d279233b
+  ondato_flutter_screen_recorder: 0ffc184bbc069546351b7685d40402d488095750
+  ondato_flutter_sdk: 1e47f79abc385f747631e2e1ec182cf179a276f2
+  OndatoAutocapture: 4a95f9561e9b41eac43abe0e6f1b1fef2807841e
+  OndatoNFC: 523a388cc95773a7b35f94899b2112d189f6fd7d
+  OndatoScreenRecorder: 7d9e505c8bf3a820754b14507c958350755780b2
+  OndatoSDK-Core: bec763b5ac1bf2b8a9584db5f75530467c992985
 
-PODFILE CHECKSUM: 69dd8af40679a31d8cc00bc6db0ad34f2232234b
+PODFILE CHECKSUM: 41f49e001f82212aa21427f84abc8f3d54456805
 
 COCOAPODS: 1.16.2
