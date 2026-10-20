@@ -1,3 +1,7 @@
+## 3.6.2
+- feat: Updated Android to 3.6.2
+- feat: Updated iOS to 3.6.2
+
 ## 3.6.0
 - feat: Updated Android to 3.6.0
 - feat: Updated iOS to 3.6.0
