@@ -54,6 +54,8 @@ ondato_flutter_sdk:
 
 Add your identification ID, start the application and press the button to start the identification process. Don't forget to initialise the SDK first!
 
+> **Important:** An identification ID can only be used once. Create a new identification ID (via the Ondato API) for every identification session. If you start the SDK with an ID that has already been used, the SDK will close with an error.
+
 ```dart
 import 'package:ondato_flutter/ondato_config.dart';
 import 'package:ondato_flutter/ondato_flutter.dart';
